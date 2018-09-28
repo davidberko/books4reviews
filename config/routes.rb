@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
-  
+
+  get 'users/show'
   resources :books
+  get 'user' => 'users#show'
+  get 'edit_user' => 'users#edit'
+
   devise_for :users, controllers: {
           sessions: 'users/sessions',
           registrations: 'users/registrations'
