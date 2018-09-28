@@ -1,5 +1,7 @@
 <h1>Welcome, <%= @user.first_name %></h1>
 
+<% if @user.author? %>
+
 <h3>Upload one of your books to be reviewed!</h3>
 <%= link_to "new book", new_book_path %><br />
 
@@ -8,5 +10,10 @@
 
 Title: <b><%= b.title %></b><br />
 Description: <b><%= b.description %></b>
+
+<% end %>
+<% else %>
+
+<h3>Choose from these genres to review</h3>
 
 <% end %>
