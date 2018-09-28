@@ -3,16 +3,15 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-prepend_before_action :require_no_authentication, only: :cancel
-  # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  prepend_before_action :require_no_authentication, only: :cancel
 
-  # POST /resource
-  # def create
-  #   super
-  # end
+  #GET /resource/sign_up
+   #def new
+    # super
+   #end
+
+   #POST /resource
+
 
   # GET /resource/edit
   # def edit
@@ -38,12 +37,20 @@ prepend_before_action :require_no_authentication, only: :cancel
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
+   def configure_sign_up_params
+     devise_parameter_sanitizer.permit(:sign_up, keys: [:access_level])
+   end
+
+   def after_sign_up_path_for(resource)
+     if resource.author?
+     books_path
+    else
+      root_path
+    end
+   end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
