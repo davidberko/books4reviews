@@ -1,3 +1,4 @@
+<%= tinymce_assets %>
 <%= form_with(model: book, local: true) do |form| %>
   <% if book.errors.any? %>
     <div id="error_explanation">
@@ -16,6 +17,10 @@
     <%= form.hidden_field :user_id %>
   </div>
 
+  <div class="cover-art">
+    <%= form.file_field :avatar %>
+  </div>
+
   <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>
@@ -23,7 +28,7 @@
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_field :description %>
+    <%= form.text_area :description, :class => "tinymce", :rows => 20, :cols => 120 %> 
   </div>
 
   <div class="genres-field">
@@ -37,3 +42,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+<%= tinymce %>

@@ -2,5 +2,5 @@
 
 <% @genre.books.each do |g| %>
 
-<%= link_to g.title, book_path(g) %>
+  <%= image_tag g.avatar_url(:thumb).to_s %><%= link_to g.title, book_path(g) %><br />
 <% end %>

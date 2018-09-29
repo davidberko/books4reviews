@@ -1,4 +1,4 @@
-<h1>Welcome, <%= @user.first_name + "" + @user.last_name %></h1>
+<%= image_tag @user.avatar_url(:thumb).to_s %><h1>Welcome, <%= @user.first_name + " " + @user.last_name %></h1>
 
 <% if @user.author? %>
 
@@ -8,15 +8,16 @@
 <h4>Your current titles</h4>
 <% @user.books.each do |b| %>
 
+<%= image_tag b.avatar_url(:thumb).to_s %>
 Title: <b><%= b.title %></b><br />
-Description: <b><%= b.description %></b>
-Genres: <%= b.genres.map { |x| x.name }.join(',') %>
+Description: <b><%= b.description.html_safe %></b><br />
+Genres: <%= b.genres.map { |x| x.name }.join(',') %><br />
 
 <% end %>
 <% else %>
 
-<h3>Choose from these genres to review</h3>
+<h3>Get Busy Reading!</h3>
 
-<%= link_to "Your Next Book", books_path %>
+<%= link_to "Your next book", genres_path %>
 
 <% end %>

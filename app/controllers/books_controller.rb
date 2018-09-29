@@ -72,6 +72,6 @@ class BooksController < ApplicationController
 
     def book_params
       params[:book][:genre_ids] = (params[:book][:genre_ids] || {}).values.map(&:to_i)
-      params.require(:book).permit(:title, :user_id, :description, genre_ids: [])
+      params.require(:book).permit(:avatar, :title, :user_id, :description, genre_ids: [])
     end
 end
