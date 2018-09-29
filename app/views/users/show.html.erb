@@ -1,4 +1,4 @@
-<h1>Welcome, <%= @user.first_name %></h1>
+<h1>Welcome, <%= @user.first_name + "" + @user.last_name %></h1>
 
 <% if @user.author? %>
 
@@ -16,5 +16,7 @@ Genres: <%= b.genres.map { |x| x.name }.join(',') %>
 <% else %>
 
 <h3>Choose from these genres to review</h3>
+
+<%= link_to "Your Next Book", books_path %>
 
 <% end %>

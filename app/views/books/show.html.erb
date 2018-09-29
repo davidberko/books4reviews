@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @book.user %>
+  <strong>Author:</strong>
+  <%= @book.user.first_name %> <%= @book.user.last_name %>
 </p>
 
 <p>
@@ -15,5 +15,4 @@
   <%= @book.description %>
 </p>
 
-<%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>

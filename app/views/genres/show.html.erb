@@ -1,0 +1,6 @@
+<%= @genre.name %>
+
+<% @genre.books.each do |g| %>
+
+<%= link_to g.title, book_path(g) %>
+<% end %>
