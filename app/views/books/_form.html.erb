@@ -26,6 +26,13 @@
     <%= form.text_field :description %>
   </div>
 
+  <div class="genres-field">
+  <% @genres.each_with_index do |genre, i| %>
+    <%= check_box_tag "book[genre_ids][#{i}]", genre.id %>
+    <%= label_tag "book[genre_ids][#{i}]", genre.name %>
+  <% end %>
+</div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

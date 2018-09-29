@@ -10,6 +10,7 @@
 
 Title: <b><%= b.title %></b><br />
 Description: <b><%= b.description %></b>
+Genres: <%= b.genres.map { |x| x.name }.join(',') %>
 
 <% end %>
 <% else %>
