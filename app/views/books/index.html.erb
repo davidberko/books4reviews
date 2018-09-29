@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<% if current_user.reviewer? %>
+
+<h1>Books</h1>
+
+<%= link_to "genres", genres_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Author</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.user.first_name + " " + book.user.last_name %></td>
+        <td><%= book.title %></td>
+        <td><%= book.description %></td>
+        <td><%= link_to 'Show', book %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% else %>
+You are not authorized
+<% end %>

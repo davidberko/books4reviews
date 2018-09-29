@@ -3,16 +3,15 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  prepend_before_action :require_no_authentication, only: :cancel
 
-  # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  #GET /resource/sign_up
+   #def new
+    # super
+   #end
 
-  # POST /resource
-  # def create
-  #   super
-  # end
+   #POST /resource
+
 
   # GET /resource/edit
   # def edit
@@ -38,12 +37,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
+   def configure_sign_up_params
+     devise_parameter_sanitizer.permit(:sign_up, keys: [:access_level])
+   end
+
+   def after_sign_up_path_for(resource)
+     @user
+   end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
@@ -59,4 +62,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  private
+
+ def sign_up_params
+   params.require(:user).permit(:avatar, :access_level, :first_name, :last_name, :email, :password, :password_confirmation)
+ end
+
+ def account_update_params
+   params.require(:user).permit(:avatar, :first_name, :last_name, :email, :password, :password_confirmation, :current_password)
+ end
 end
