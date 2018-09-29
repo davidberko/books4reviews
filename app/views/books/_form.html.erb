@@ -1,0 +1,45 @@
+<%= tinymce_assets %>
+<%= form_with(model: book, local: true) do |form| %>
+  <% if book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+      <% book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+
+    <%= form.hidden_field :user_id %>
+  </div>
+
+  <div class="cover-art">
+    <%= form.file_field :avatar %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, :class => "tinymce", :rows => 20, :cols => 120 %> 
+  </div>
+
+  <div class="genres-field">
+  <% @genres.each_with_index do |genre, i| %>
+    <%= check_box_tag "book[genre_ids][#{i}]", genre.id %>
+    <%= label_tag "book[genre_ids][#{i}]", genre.name %>
+  <% end %>
+</div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+<%= tinymce %>

@@ -9,7 +9,20 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <nav>
+    <li><%= link_to "Books4Reviews", root_path %></li>
+    <% if current_user %>
+    <ul>
+      <li><%= link_to "Profile", current_user %></li>
+      <li><%= link_to "Manage Account", edit_user_path %></li>
+      <li><%= link_to "log out", destroy_user_session_path, method: :delete %></li>
+    </ul>
+
+    <% end %>
+  </nav>
+
   <body>
+
     <%= yield %>
   </body>
 </html>

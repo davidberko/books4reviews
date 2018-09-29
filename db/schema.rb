@@ -10,10 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_28_173253) do
+ActiveRecord::Schema.define(version: 2018_09_29_184539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "books", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "description"
+    t.string "avatar"
+    t.index ["user_id"], name: "index_books_on_user_id"
+  end
+
+  create_table "books_genres", force: :cascade do |t|
+    t.bigint "book_id"
+    t.bigint "genre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id", "genre_id"], name: "index_books_genres_on_book_id_and_genre_id", unique: true
+    t.index ["book_id"], name: "index_books_genres_on_book_id"
+    t.index ["genre_id"], name: "index_books_genres_on_genre_id"
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "models", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -36,8 +62,15 @@ ActiveRecord::Schema.define(version: 2018_09_28_173253) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "access_level"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "avatar"
+    t.index ["access_level"], name: "index_users_on_access_level"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "books", "users"
+  add_foreign_key "books_genres", "books"
+  add_foreign_key "books_genres", "genres"
 end
