@@ -16,7 +16,13 @@ Genres: <%= b.genres.map { |x| x.name }.join(',') %><br />
 <% end %>
 <% else %>
 
-<h3>Get Busy Reading!</h3>
+
+<div id="Still in Review">
+  <h3><b>Currently Reading</b></h3>
+  <% @user.claims.each do |c| %>
+  <%= link_to c.title, c %><br />
+  <% end %>
+</div><br />
 
 <%= link_to "Your next book", genres_path %>
 

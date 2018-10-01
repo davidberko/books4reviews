@@ -10,6 +10,7 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+    @book = Book.find(params[:id])
   end
 
   # GET /books/new
@@ -38,6 +39,19 @@ class BooksController < ApplicationController
     end
   end
 
+  def claim
+    book = Book.find(params[:id])
+    book.claims << current_user unless book.claims.include?(current_user)
+    redirect_to book, notice: "You have a new book to review!"
+  end
+
+  def unclaim
+    book = Book.find(params[:id])
+    if book.claims.include?(current_user)
+      book.claims.delete(current_user)
+      redirect_to book, notice: "Thanks for leaving a review!"
+    end
+  end
   # PATCH/PUT /books/1
   # PATCH/PUT /books/1.json
   def update
