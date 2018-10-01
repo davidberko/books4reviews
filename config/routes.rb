@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   get 'users/show'
   resources :genres
-  resources :books
+  resources :books do
+    get :claim, on: :member
+    get :unclaim, on: :member
+  end
+
   get 'user' => 'users#show'
   get 'edit_user' => 'users#edit'
 

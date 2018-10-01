@@ -2,6 +2,10 @@
 
 <%= form_for(current_user, url: registration_path(current_user), html: { method: :put }) do |f| %>
 
+  <div class="profile-pic">
+    <%= f.label "Profile Pic" %>
+    <%= f.file_field :avatar %>
+  </div>
   <div class="field">
     <%= f.label :first_name %>
     <%= f.text_field :first_name %>

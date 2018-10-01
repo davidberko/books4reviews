@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_29_184539) do
+ActiveRecord::Schema.define(version: 2018_10_01_020316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2018_09_29_184539) do
     t.datetime "updated_at", null: false
     t.text "description"
     t.string "avatar"
+    t.boolean "claim", default: false
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
@@ -33,6 +34,12 @@ ActiveRecord::Schema.define(version: 2018_09_29_184539) do
     t.index ["book_id", "genre_id"], name: "index_books_genres_on_book_id_and_genre_id", unique: true
     t.index ["book_id"], name: "index_books_genres_on_book_id"
     t.index ["genre_id"], name: "index_books_genres_on_genre_id"
+  end
+
+  create_table "books_users", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "book_id"
+    t.index ["user_id", "book_id"], name: "index_books_users_on_user_id_and_book_id", unique: true
   end
 
   create_table "genres", force: :cascade do |t|
@@ -51,6 +58,16 @@ ActiveRecord::Schema.define(version: 2018_09_29_184539) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_models_on_email", unique: true
     t.index ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "book_id"
+    t.boolean "claim", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_reviews_on_book_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -73,4 +90,6 @@ ActiveRecord::Schema.define(version: 2018_09_29_184539) do
   add_foreign_key "books", "users"
   add_foreign_key "books_genres", "books"
   add_foreign_key "books_genres", "genres"
+  add_foreign_key "reviews", "books"
+  add_foreign_key "reviews", "users"
 end

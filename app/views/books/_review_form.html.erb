@@ -1,0 +1,10 @@
+<%= form_with model: @review do |form| %>
+
+  <% form.hidden_field :user_id %>
+  <% form.hidden_field :book_id %>
+
+  <%= form.check_box :claim %>
+
+  <%= form.submit :submit %>
+
+<% end %>
