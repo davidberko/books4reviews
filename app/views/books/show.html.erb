@@ -20,10 +20,29 @@
 
 <p>
   <strong>Reviews</strong>
-  <% @book.reviews.each do |r| %>
 
-    <%= r.comment %>
-  <% end %>
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Reviewer</th>
+        <th>Rating</th>
+        <th>Review</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+        <% @book.reviews.each do |r| %>
+        <tr>
+          <td><%= image_tag r.user.avatar_url(:small).to_s %></td>
+          <td><b><%= r.user.first_name + " " + r.user.last_name %></b></td>
+          <td><b><%= r.rating %></b></td>
+          <td><%= r.comment %></td>
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
 </p>
 
 <% if current_user.reviewer? %>
