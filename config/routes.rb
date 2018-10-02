@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :books do
     get :claim, on: :member
     get :unclaim, on: :member
+    resources :reviews
   end
 
   get 'user' => 'users#show'

@@ -5,7 +5,8 @@ mount_uploader :avatar, AvatarUploader
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :books
+  has_many :books, dependent: :destroy
+  has_many :reviews , dependent: :destroy
   enum access_level: [:author, :reviewer]
 
   has_and_belongs_to_many :claims, join_table: :books_users, association_foreign_key: :book_id, class_name: Book.to_s

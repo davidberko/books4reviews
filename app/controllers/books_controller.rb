@@ -49,7 +49,7 @@ class BooksController < ApplicationController
     book = Book.find(params[:id])
     if book.claims.include?(current_user)
       book.claims.delete(current_user)
-      redirect_to book, notice: "Thanks for leaving a review!"
+      redirect_to book, notice: "Now you're ready to submit your review"
     end
   end
   # PATCH/PUT /books/1
