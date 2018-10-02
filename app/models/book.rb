@@ -4,4 +4,8 @@ class Book < ApplicationRecord
   has_many :reviews
   has_and_belongs_to_many :genres, dependent: :destroy
   has_and_belongs_to_many :claims, join_table: :books_users, association_foreign_key: :user_id, class_name: User.to_s
+  def reviewed
+    Book.where(:user_id, current_user.id)
+  end
+
 end
