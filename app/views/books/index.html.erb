@@ -1,10 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<% if current_user.reviewer? %>
 
 <h1>Books</h1>
 
-<%= link_to "genres", genres_path %>
 <table>
   <thead>
     <tr>
@@ -30,7 +28,3 @@
 </table>
 
 <br>
-
-<% else %>
-You are not authorized
-<% end %>
