@@ -1,0 +1,40 @@
+<%= image_tag current_user.avatar_url(:thumb).to_s %><b><%= current_user.first_name + " " + current_user.last_name %></b><br />
+<% if current_user.author? %>
+
+<h1>Welcome Author, <%= current_user.first_name + " " + current_user.last_name %></h1>
+
+
+  <h3>Upload one of your books to be reviewed!</h3>
+  <%= link_to "new book", new_book_path %><br />
+
+<% end %>
+
+
+  <% current_user.books.each do |b| %>
+
+
+
+
+
+    <%= image_tag b.avatar_url(:thumb).to_s %>
+    Title: <b><%= b.title %></b><br />
+    Description: <b><%= b.description.html_safe %></b><br />
+    Genres: <%= b.genres.map { |x| x.name }.join(',') %><br />
+
+
+    <% end %>
+<% if current_user.reviewer? %>
+
+<h1>Welcome Reviewer, <%= current_user.first_name + " " + current_user.last_name %></h1>
+
+
+<div id="Still in Review">
+  <h3><b>Currently Reading</b></h3>
+  <% current_user.claims.each do |c| %>
+  <%= link_to c.title, c %><br />
+  <% end %>
+</div><br />
+
+<%= link_to "Your next book", genres_path %>
+
+<% end %>

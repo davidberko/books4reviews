@@ -19,7 +19,7 @@
 </p>
 
 <div id="author-books">
-  More Books by this author: <%=link_to @book.user.first_name, @book.user %>
+  More Books by this author: <%=link_to @book.user.first_name, user_path(@book.user) %>
 </div><br />
 
 

@@ -15,7 +15,7 @@
     <li><%= link_to "Genres", genres_path %></li>
     <% if current_user %>
     <ul>
-      <li><%= link_to "Profile", current_user %></li>
+      <li><%= link_to "Profile", current_user_path %></li>
       <li><%= link_to "Manage Account", edit_user_path(current_user) %></li>
       <li><%= link_to "log out", destroy_user_session_path, method: :delete %></li>
     </ul>

@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
 
-  get 'users/show'
-  resources :users 
+
   resources :genres
   resources :books do
     get :claim, on: :member
@@ -10,7 +9,8 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
-  get 'user' => 'users#show'
+  get 'user/:id' => 'users#show', as: 'user'
+  get 'current_user' => 'users#profile'
   get 'edit_user' => 'users#edit'
 
   devise_for :users, controllers: {
