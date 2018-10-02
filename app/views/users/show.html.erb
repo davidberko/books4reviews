@@ -1,19 +1,26 @@
-<%= image_tag @user.avatar_url(:thumb).to_s %><h1>Welcome, <%= @user.first_name + " " + @user.last_name %></h1>
+<%= image_tag @user.avatar_url(:thumb).to_s %>
+<h1>Welcome, <%= @user.first_name + " " + @user.last_name %></h1>
 
 <% if @user.author? %>
 
-<h3>Upload one of your books to be reviewed!</h3>
-<%= link_to "new book", new_book_path %><br />
+  <h3>Upload one of your books to be reviewed!</h3>
+  <%= link_to "new book", new_book_path %><br />
 
-<h4>Your current titles</h4>
-<% @user.books.each do |b| %>
 
-<%= image_tag b.avatar_url(:thumb).to_s %>
-Title: <b><%= b.title %></b><br />
-Description: <b><%= b.description.html_safe %></b><br />
-Genres: <%= b.genres.map { |x| x.name }.join(',') %><br />
+  <% @user.books.each do |b| %>
 
-<% end %>
+
+
+
+  <h3>Your Titles</h3>
+
+    <%= image_tag b.avatar_url(:thumb).to_s %>
+    Title: <b><%= b.title %></b><br />
+    Description: <b><%= b.description.html_safe %></b><br />
+    Genres: <%= b.genres.map { |x| x.name }.join(',') %><br />
+
+
+    <% end %>
 <% else %>
 
 
