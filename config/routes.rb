@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
   get 'users/show'
+  resources :users 
   resources :genres
   resources :books do
     get :claim, on: :member

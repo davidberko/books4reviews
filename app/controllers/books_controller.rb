@@ -13,6 +13,10 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
+  def book_author
+    @author = @book.user 
+  end
+
   # GET /books/new
   def new
     @book = current_user.books.build

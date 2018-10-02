@@ -18,6 +18,11 @@
   <%= @book.description.html_safe %>
 </p>
 
+<div id="author-books">
+  More Books by this author: <%=link_to @book.user.first_name, @book.user %>
+</div><br />
+
+
 <p>
   <strong>Reviews</strong>
 
@@ -44,6 +49,7 @@
     </tbody>
   </table>
 </p>
+
 
 <% if current_user.reviewer? %>
 
