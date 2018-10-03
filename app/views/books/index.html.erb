@@ -3,6 +3,9 @@
 
 <h1>Books</h1>
 
+<%= will_paginate @books %>
+
+
 <table>
   <thead>
     <tr>
@@ -17,7 +20,7 @@
   <tbody>
     <% @books.each do |book| %>
       <tr>
-        <td><%= image_tag book.avatar_url(:small).to_s %></td>
+        <td><%= image_tag book.avatar_url(:small).to_s, class: "img-fluid" %></td>
         <td><b><%= book.user.first_name + " " + book.user.last_name %></b></td>
         <td><b><%= book.title %></b></td>
         <td><%= book.description.html_safe %></td>

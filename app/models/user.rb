@@ -10,4 +10,9 @@ mount_uploader :avatar, AvatarUploader
   enum access_level: [:author, :reviewer]
 
   has_and_belongs_to_many :claims, join_table: :books_users, association_foreign_key: :book_id, class_name: Book.to_s
+
+def full_name
+  first_name + " " + last_name
+end
+
 end
