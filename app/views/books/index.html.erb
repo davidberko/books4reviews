@@ -6,7 +6,7 @@
 <%= will_paginate @books %>
 
 
-<table>
+<table id="books-table">
   <thead>
     <tr>
       <th>Cover</th>
@@ -23,7 +23,9 @@
         <td><%= image_tag book.avatar_url(:small).to_s, class: "img-fluid" %></td>
         <td><b><%= book.user.first_name + " " + book.user.last_name %></b></td>
         <td><b><%= book.title %></b></td>
-        <td><%= book.description.html_safe %></td>
+        <td>
+          <p><%=  truncate(book.description, :ommision => "...", :length => 200, escape: false) %></p>
+        </td>
         <td><%= link_to 'Show', book %></td>
       </tr>
     <% end %>

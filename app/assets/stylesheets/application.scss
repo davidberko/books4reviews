@@ -13,3 +13,21 @@
  */
 
  @import 'bootstrap';
+ @import 'books';
+
+body {
+  background-color: #E59866;
+}
+
+nav {
+  #main-links {
+    display: inline-flex;
+    li {
+      margin-right: 5px;
+    }
+  }
+
+  li {
+    list-style: none;
+  }
+}
