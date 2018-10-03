@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div>
-  <%= image_tag @book.avatar_url(:medium).to_s %>
+  <%= image_tag @book.avatar_url(:small).to_s, class: "img-fluid" %>
 </div>
 <p>
   <strong>Author:</strong>
@@ -17,6 +17,11 @@
   <strong>Description:</strong>
   <%= @book.description.html_safe %>
 </p>
+
+<div id="author-books">
+  More Books by this author: <%=link_to @book.user.first_name, user_path(@book.user) %>
+</div><br />
+
 
 <p>
   <strong>Reviews</strong>
@@ -44,6 +49,7 @@
     </tbody>
   </table>
 </p>
+
 
 <% if current_user.reviewer? %>
 
