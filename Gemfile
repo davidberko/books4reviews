@@ -34,6 +34,12 @@ gem 'tinymce-rails-imageupload', github: 'PerfectlyNormal/tinymce-rails-imageupl
  gem 'carrierwave'
  gem 'fog'
 
+
+ gem 'will_paginate', '~> 3.1.0'
+ gem 'bootstrap'
+ gem 'jquery-rails'
+ gem 'mini_racer'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

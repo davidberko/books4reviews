@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   end
 
   get 'user/:id' => 'users#show', as: 'user'
+  get 'users' => 'users#reviewer', as: 'reviewers'
+  get 'users' => 'users#author', as: 'authors'
   get 'current_user' => 'users#profile'
   get 'edit_user' => 'users#edit'
 

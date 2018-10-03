@@ -10,6 +10,14 @@ class UsersController < ApplicationController
     @current_user = current_user
   end
 
+  def reviewer
+    @users = User.where(["access_level = ?", "1"])
+  end
+
+  def author
+    @authors = User.where(["access_level = ?", "0"])
+  end
+
   def edit
   end
 

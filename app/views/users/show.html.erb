@@ -1,4 +1,4 @@
-<%= image_tag @user.avatar_url(:thumb).to_s %><b><%= @user.first_name + " " + @user.last_name %></b><br />
+<%= image_tag @user.avatar_url(:thumb).to_s, class: "img-fluid" %><b><%= @user.first_name + " " + @user.last_name %></b><br />
 
 
 <% if @user.author? %>
@@ -9,7 +9,7 @@
 
 
 
-    <%= image_tag b.avatar_url(:thumb).to_s %>
+    <%= image_tag b.avatar_url(:thumb).to_s, class: "img-fluid" %>
     Title: <b><%= b.title %></b><br />
     Description: <b><%= b.description.html_safe %></b><br />
     Genres: <%= b.genres.map { |x| x.name }.join(',') %><br />
@@ -20,12 +20,21 @@
 
 <% if @user.reviewer? %>
 
-<h1><%= @user.first_name + " " + @user.last_name %></h1>
+<h1><%= @user.first_name + " " + @user.last_name %></h1><br />
 
   <% @user.reviews.each do |r| %>
 
-    <%= r.book.title %>
-    <%= r.book.user.first_name + r.book.user.last_name %>
-    <%= r.book.comment %>
+  <div>
+    Book title: <b><%= r.book.title %><b><br />
+    Author: <%= r.book.user.first_name + " " + r.book.user.last_name %><br />
+
+    <h2>Review</h2>
+      Rating: <%= r.rating %><br />
+      <%= @user.first_name %>said: <%= r.comment %><br />
+  </div>
+
   <% end %>
+  <% if !@user.reviews.present? %>
+    No reviews yet
+    <% end %>
 <% end %>
