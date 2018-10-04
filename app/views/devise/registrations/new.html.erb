@@ -1,14 +1,17 @@
-<h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
+<div class="registration-container">
+  <h2>Sign up today!</h2>
 
   <div class="profile-pic">
+    <%= f.label "Add a profile pic" %><br />
     <%= f.file_field :avatar %>
   </div><br />
   <div class="user-roles">
+    <%= f.label "Are you a Reviewer or Author?" %><br />
     <%= f.select(:access_level, [['Author', 'author'], ['Reviewer', 'reviewer']]) %>
-  </div>
+  </div><br />
 
   <div class="user-name">
     <%= f.label :first_name %>
@@ -38,6 +41,8 @@
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
+  <div class="shared-links">
+  or <%= render "devise/shared/links" %>
+  </div>
+</div>
 <% end %>
-
-<%= render "devise/shared/links" %>
