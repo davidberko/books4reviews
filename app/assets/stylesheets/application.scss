@@ -13,10 +13,62 @@
  */
 
  @import 'bootstrap';
+ @import 'books';
+
+
+ body {
+  background-color: #E59866;
+}
+ nav {
+   height: 100px;
+   background-color: #852809;
+   #main-links {
+      margin-top: 30px;
+      display: inline-flex;
+      a {
+          color: white;
+          text-decoration: none;
+      }
+      li {
+         list-style: none;
+      }
+      #home_link {
+        font-size: 50px;
+      }
+      #other_links {
+        display: inline-flex;
+        margin-left: 20px;
+        li {
+          margin-left: 10px;
+        }
+      }
+    }
+    #current_user_dropdown {
+      float: right;
+    }
+  }
+
+
+
+
+
+
+
+
 
 /* Registration/Login forms */
 
   .registration-container {
-    width: 50%;
-    margin-left: 25%;
+    h2 {
+      text-align: center;
+    }
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: white;
+    padding: 50px;
+
+    form {
+
+    }
   }
