@@ -10,15 +10,19 @@
   </head>
 
   <nav>
-    <li><%= link_to "Books4Reviews", root_path %></li>
-    <li><%= link_to "Books", books_path %></li>
-    <li><%= link_to "Genres", genres_path %></li>
-    <li><%= link_to "Reviewers", reviewers_path %></li>
-    <li><%= link_to "Authors", authors_path %></li>
+      <ul id="main-links">
+        <li id="home_link"><%= link_to "Books4Reviews", root_path %></li>
+          <ul id="other_links">
+            <li><%= link_to "Books", books_path %></li>
+            <li><%= link_to "Genres", genres_path %></li>
+            <li><%= link_to "Reviewers", reviewers_path %></li>
+            <li><%= link_to "Authors", authors_path %></li>
+          </ul>
+      </ul>
 
 
     <% if current_user %>
-    <ul>
+    <ul id="current_user_dropdown">
       <li><%= link_to "Profile", current_user_path %></li>
       <li><%= link_to "Manage Account", edit_user_path(current_user) %></li>
       <li><%= link_to "log out", destroy_user_session_path, method: :delete %></li>
