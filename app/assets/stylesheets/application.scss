@@ -45,9 +45,25 @@
         }
       }
     }
-    #current_user_dropdown {
+
+    .dropdown {
       float: right;
+      display: none;
+
+      li {
+        background-color: white;
+        right: auto;
+        left: auto;
+        text-align: center;
+        a {
+          
+        }
+      }
     }
+    #dropdown-container:hover .dropdown {
+        display: block;
+      }
+
   }
 
 
