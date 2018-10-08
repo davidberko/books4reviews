@@ -1,3 +1,66 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Profile Page */
+
+#profile-pic-container {
+  border-bottom-size: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: #852809;
+}
+
+#new-book-upload {
+  margin-left: 5%;
+  a {
+    color: white;
+    font-size: 20px;
+  }
+}
+
+h1 {
+  text-align: center;
+}
+
+#user-reviews {
+  margin-left: 20%;
+  width: 60%;
+  margin-right: 20%;
+  background-color: white;
+  padding: 20px;
+}
+
+#currently-reading {
+  border-bottom-size: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: #852809;
+  border-top-size: 1px;
+  border-top-style: solid;
+  border-top-color: #852809;
+  padding-bottom: 10px;
+}
+#author-profile-books {
+  margin-left: 20%;
+  width: 60%;
+  margin-right: 20%;
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* author show page */
+
+#user-show-profile-pic {
+  border-bottom-size: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: #852809;
+}
+
+#author-show-page-book {
+  margin-left: 20%;
+  width: 60%;
+  margin-right: 20%;
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+}
