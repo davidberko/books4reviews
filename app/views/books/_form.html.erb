@@ -12,34 +12,38 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div id="new-book-form">
 
-    <%= form.hidden_field :user_id %>
-  </div>
+    <div class="field">
 
-  <div class="cover-art">
-    <%= form.file_field :avatar %>
-  </div>
+      <%= form.hidden_field :user_id %>
+    </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+    <div class="cover-art">
+      <%= form.label "Book cover" %>
+      <%= form.file_field :avatar %>
+    </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, :class => "tinymce", :rows => 20, :cols => 120 %> 
-  </div>
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
 
-  <div class="genres-field">
-  <% @genres.each_with_index do |genre, i| %>
-    <%= check_box_tag "book[genre_ids][#{i}]", genre.id %>
-    <%= label_tag "book[genre_ids][#{i}]", genre.name %>
-  <% end %>
-</div>
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description, :class => "tinymce", :rows => 20, :cols => 120 %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
+    <div class="genres-field">
+    <% @genres.each_with_index do |genre, i| %>
+      <%= check_box_tag "book[genre_ids][#{i}]", genre.id %>
+      <%= label_tag "book[genre_ids][#{i}]", genre.name %>
+    <% end %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
   </div>
 <% end %>
 <%= tinymce %>

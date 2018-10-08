@@ -1,12 +1,14 @@
-<%= image_tag current_user.avatar_url(:thumb).to_s %><b><%= current_user.first_name + " " + current_user.last_name %></b><br />
+<div id="profile-pic-container">
+  <%= image_tag current_user.avatar_url(:thumb).to_s, class: "img-fluid"  %><b><%= current_user.full_name %></b><br />
+</div>
 <% if current_user.author? %>
 
-<h1>Welcome Author, <%= current_user.first_name + " " + current_user.last_name %></h1>
+<h1>Welcome Author, <%= current_user.full_name %></h1>
 
-
+<div id="new-book-upload">
   <h3>Upload one of your books to be reviewed!</h3>
   <%= link_to "new book", new_book_path %><br />
-
+</div>
 <% end %>
 
 
@@ -15,26 +17,26 @@
 
 
 
-
-    <%= image_tag b.avatar_url(:thumb).to_s %>
+  <div id="author-profile-books">
+    <%= image_tag b.avatar_url(:thumb).to_s, class: "img-fluid" %>
     Title: <b><%= b.title %></b><br />
     Description: <b><%= b.description.html_safe %></b><br />
     Genres: <%= b.genres.map { |x| x.name }.join(',') %><br />
-
+  </div>
 
     <% end %>
 <% if current_user.reviewer? %>
 
-<h1>Welcome Reviewer, <%= current_user.first_name + " " + current_user.last_name %></h1>
+<h1>Welcome Reviewer, <%= current_user.full_name %></h1>
 
 
-<div id="Still in Review">
+<div id="currently-reading">
   <h3><b>Currently Reading</b></h3>
   <% current_user.claims.each do |c| %>
-  <%= link_to c.title, c %><br />
+  <%= link_to c.title, c, style: "color:white;font-size:20px;" %><br />
   <% end %>
 </div><br />
 
-<%= link_to "Your next book", genres_path %>
+<%= link_to "Your next book", genres_path, style: "color:white;font-size:20px;" %>
 
 <% end %>

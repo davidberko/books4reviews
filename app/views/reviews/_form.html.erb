@@ -1,22 +1,38 @@
-<%= form_for([@book, @review]) do |form| %>
+<!DOCTYPE html>
+<%= tinymce_assets %>
+<body>
+
+<div id="new-review-container">
+  <%= form_for([@book, @review]) do |form| %>
 
 
-<%= form.hidden_field :user_id %>
-<%= form.hidden_field :book_id %>
+  <%= form.hidden_field :user_id %>
+  <%= form.hidden_field :book_id %>
 
-  <div class="field">
-    <%= form.label :comment %>
-    <%= form.text_area :comment %>
-  </div>
+    <div class="comment-field">
+      <%= form.label "Don't forget link to review on Amazon" %>
+      <%= form.text_area :comment, :class => "tinymce", :rows => 20, :cols => 120 %>
+    </div>
 
-  <div class="field">
-    <%= form.label :rating %>
-    <%= form.number_field :rating %>
+    <div class="form-group row">
+      <%= form.label :rating, class: 'col-sm-2 form-control-label' %>
+      <div class="col-sm-6" id='star-rating'></div>
+    </div>
 
-  </div>
+
+    <div class="actions">
+      <%= form.submit "review", data: { confirm: "Warning, each review is moderated and may affect your reviewer ranking" } %>
+    </div>
+</div>
+  <% end %>
+
+  <%= tinymce %>
 
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<script>
+$('#star-rating').raty({
+    path: '/assets',
+    scoreName: 'review[rating]'
+});
+</script>
+</body

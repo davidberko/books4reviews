@@ -13,6 +13,11 @@ class BooksController < ApplicationController
   # GET /books/1.json
   def show
     @book = Book.find(params[:id])
+    @avg_rating = if @book.reviews.blank?
+    0
+    else
+      @book.reviews.average(:rating).round(2)
+    end
   end
 
   def book_author
@@ -48,14 +53,14 @@ class BooksController < ApplicationController
   def claim
     book = Book.find(params[:id])
     book.claims << current_user unless book.claims.include?(current_user)
-    redirect_to book, notice: "You have a new book to review!"
+    redirect_to book
   end
 
   def unclaim
     book = Book.find(params[:id])
     if book.claims.include?(current_user)
       book.claims.delete(current_user)
-      redirect_to book, notice: "Now you're ready to submit your review"
+      redirect_to book
     end
   end
   # PATCH/PUT /books/1
