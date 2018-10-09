@@ -1,6 +1,11 @@
 class HomePagesController < ApplicationController
-  before_action :authenticate_user!
 
   def index
+  end
+
+  def author_signup
+  end
+
+  def reviewer_signup
   end
 end

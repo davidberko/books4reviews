@@ -16,6 +16,7 @@
  @import 'books';
  @import 'users';
  @import 'reviews';
+ @import 'home_pages';
 
 
  body {
@@ -24,7 +25,7 @@
  nav {
    height: 130px;
    background-color: #852809;
-   a {
+   a:hover {
        text-decoration: none;
    }
    li {
@@ -36,15 +37,20 @@
       display: inline-flex;
       #home_link {
         font-size: 50px;
+
         a {
           color: white;
         }
+      }
+      #home_link:hover {
+        text-decoration: none;
       }
 
 
       #other_links {
         display: inline-flex;
         margin-left: 20px;
+        margin-top: 50px;
         li {
           margin-left: 10px;
           a {
@@ -54,15 +60,21 @@
       }
     }
 
+    #dropdown-container {
+      position: relative;
+    }
+
     .user-dropdown {
       float: right;
       display: none;
+      position: absolute;
+      right: 0;
+      left: auto;
 
       li {
         background-color: white;
-        right: auto;
-        left: auto;
         text-align: center;
+        width: 120px;
         a {
           color: black;
         }
@@ -76,6 +88,7 @@
 
     .dropdown {
       margin-left: 40%;
+      position: relative;
       button {
         background-color: #852809;
         border-color: black;
@@ -89,10 +102,11 @@
 
 
       .dropdown-menu {
+        float: right;
+        position: absolute;
+        right: 0;
+        left: auto;
         a {
-          color: black;
-        }
-        .mark_as_read {
           color: black;
         }
       }
@@ -120,5 +134,17 @@
 
     form {
 
+    }
+  }
+
+  #new-user-session {
+    width: 25%;
+    margin-top: 5%;
+    margin-left: 60%;
+    margin-right: 15%;
+    #user-login-header {
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      border-bottom-color: #852809;
     }
   }
