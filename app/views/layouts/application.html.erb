@@ -28,6 +28,8 @@
             <div class="dropdown-menu" data-behavior="notification-items">
 
             </div>
+            <%= link_to "mark all as read", mark_as_read_notifications_path(@notifications), id: "mark_as_read", method: :post, style: "color:black;" %>
+
           </div>
 
     <% if current_user %>
