@@ -22,7 +22,7 @@
   background-color: #E59866;
 }
  nav {
-   height: 100px;
+   height: 130px;
    background-color: #852809;
    a {
        text-decoration: none;
@@ -90,6 +90,9 @@
 
       .dropdown-menu {
         a {
+          color: black;
+        }
+        .mark_as_read {
           color: black;
         }
       }
