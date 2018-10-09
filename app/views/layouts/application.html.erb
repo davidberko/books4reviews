@@ -7,6 +7,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
   </head>
 
   <nav>
@@ -19,20 +21,36 @@
             <li><%= link_to "Authors", authors_path %></li>
           </ul>
 
+          <div class="dropdown" data-behavior="notifications">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" data-behavior="notifications-link">
+              <%= image_tag "icons8-bell-24.png"%><span data-behavior="unread-count"></span>
+            </button>
+            <div class="dropdown-menu" data-behavior="notification-items">
 
+            </div>
+          </div>
 
     <% if current_user %>
 
       <ul id="dropdown-container">
         <li><%= image_tag "icons8-menu-50.png"%></li>
-          <ul class="dropdown">
+          <ul class="user-dropdown">
             <li><%= link_to "Profile", current_user_path, style: "color:black" %></li>
             <li><%= link_to "Manage Account", edit_user_path(current_user), style: "color:black" %></li>
             <li><%= link_to "log out", destroy_user_session_path, method: :delete, style: "color:black" %></li>
           </ul>
       </ul>
-    </ul>
+
     <% end %>
+
+
+
+
+    </ul>
+
+
+
+
   </nav>
 
   <body>

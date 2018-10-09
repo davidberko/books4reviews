@@ -3,6 +3,11 @@ Rails.application.routes.draw do
 
 
   resources :genres
+  resources :notifications do
+    collection do
+      post :mark_as_read
+   end
+ end
   resources :books do
     get :claim, on: :member
     get :unclaim, on: :member

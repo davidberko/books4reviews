@@ -24,29 +24,37 @@
  nav {
    height: 100px;
    background-color: #852809;
+   a {
+       text-decoration: none;
+   }
+   li {
+      list-style: none;
+   }
+
    #main-links {
       margin-top: 30px;
       display: inline-flex;
-      a {
-          color: white;
-          text-decoration: none;
-      }
-      li {
-         list-style: none;
-      }
       #home_link {
         font-size: 50px;
+        a {
+          color: white;
+        }
       }
+
+
       #other_links {
         display: inline-flex;
         margin-left: 20px;
         li {
           margin-left: 10px;
+          a {
+            color: white;
+          }
         }
       }
     }
 
-    .dropdown {
+    .user-dropdown {
       float: right;
       display: none;
 
@@ -56,14 +64,35 @@
         left: auto;
         text-align: center;
         a {
-          
+          color: black;
         }
       }
+
     }
-    #dropdown-container:hover .dropdown {
+    #dropdown-container:hover .user-dropdown {
         display: block;
       }
 
+
+    .dropdown {
+      margin-left: 40%;
+      button {
+        background-color: #852809;
+        border-color: black;
+      }
+    }
+    .dropdown:hover button {
+
+        background-color: #852809;
+      }
+
+
+
+      .dropdown-menu {
+        a {
+          color: black;
+        }
+      }
   }
 
 
