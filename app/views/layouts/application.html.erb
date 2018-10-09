@@ -14,12 +14,15 @@
   <nav>
       <ul id="main-links">
         <li id="home_link"><%= link_to "Books4Reviews", root_path %></li>
+        <% if user_signed_in? %>
+
           <ul id="other_links">
             <li><%= link_to "Books", books_path %></li>
             <li><%= link_to "Genres", genres_path %></li>
             <li><%= link_to "Reviewers", reviewers_path %></li>
             <li><%= link_to "Authors", authors_path %></li>
           </ul>
+
 
           <div class="dropdown" data-behavior="notifications">
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" data-behavior="notifications-link">
@@ -32,8 +35,6 @@
 
           </div>
 
-    <% if current_user %>
-
       <ul id="dropdown-container">
         <li><%= image_tag "icons8-menu-50.png"%></li>
           <ul class="user-dropdown">
@@ -43,7 +44,7 @@
           </ul>
       </ul>
 
-    <% end %>
+<% end %>
 
 
 

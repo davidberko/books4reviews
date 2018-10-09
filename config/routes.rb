@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   end
 
   get 'user/:id' => 'users#show', as: 'user'
-  get 'users' => 'users#reviewer', as: 'reviewers'
-  get 'users' => 'users#author', as: 'authors'
+  get 'reviewers' => 'users#reviewer', as: 'reviewers'
+  get 'authors' => 'users#author', as: 'authors'
   get 'current_user' => 'users#profile'
   get 'edit_user' => 'users#edit'
 
@@ -26,5 +26,8 @@ Rails.application.routes.draw do
         }
 
   root to: 'home_pages#index'
+
+  get 'author_signup' => 'home_pages#author_signup'
+  get 'reviewer_signup' => 'home_pages#reviewer_signup'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

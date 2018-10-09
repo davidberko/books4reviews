@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def author
-    @authors = User.where(["access_level = ?", "0"])
+    @authors = User.where(access_level: :author)
   end
 
   def edit
