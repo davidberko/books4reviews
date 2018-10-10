@@ -1,5 +1,12 @@
 class UsersController < ApplicationController
 
+  def new_author
+    @user = User.new
+  end
+
+  def new_reviewer
+    @user = User.new
+  end
 
   def show
     @user = User.find(params[:id])
@@ -38,7 +45,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :avatar)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :avatar, :access_level)
   end
 
 end

@@ -40,6 +40,8 @@ gem 'tinymce-rails-imageupload', github: 'PerfectlyNormal/tinymce-rails-imageupl
  gem 'jquery-rails'
  gem 'mini_racer'
 
+ gem 'stripe'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
