@@ -48,6 +48,55 @@
     border-bottom-color: #852809;
 
   }
+  #netflix {
+    float: left;
+    width: 50%;
+    background-color: white;
+    p {
+      float: right;
+      text-align: center;
+      margin-top: 200px;
+      margin-right: 30px;
+    }
+  }
+  #reading-pic {
+    float: left;
+    width: 50%;
+    background-color: white;
+    p {
+      float: right;
+      text-align: center;
+      margin-top: 200px;
+      margin-right: 30px;
+    }
+  }
+  #author-subscription-container {
+    width: 40%;
+    margin-left: 31%;
+    margin-right: 29%;
+    background-color: white;
+    padding-bottom: 20px;
+    h3 {
+      margin-left: 10%;
+      margin-right: 10%;
+      width: 80%;
+      text-align: center;
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      border-bottom-color: #852809;
+    }
+    img {
+      margin-left: 40%;
+    }
+    p {
+      padding: 10px;
+    }
+    form {
+      margin-left: 200px;
+      margin-bottom: 50px;
+    }
+  }
+
 
 /* Reviewer Siginup Page */
 
