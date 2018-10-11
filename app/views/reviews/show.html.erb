@@ -16,7 +16,6 @@
     <strong>Comment:</strong>
     <%= @review.comment.html_safe %>
   </p><br />
-  <%= @review.helpful? %>
   <%= @review.unhelpful? %>
   <%= link_to "helpful?", helpful_review_path(@review.id), method: :put %>
   <%= link_to "unhelpful?", unhelpful_review_path(@review.id), method: :put %>

@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_book, only: [:create, :update, :edit, :destroy]
+  before_action :set_book, only: [:create, :new]
   before_action :set_review, only: [:edit, :update, :destroy, :helpful, :unhelpful]
   # GET /reviews
   # GET /reviews.json

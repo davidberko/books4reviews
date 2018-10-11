@@ -12,7 +12,7 @@ class Review < ApplicationRecord
 end
 
   def unhelpful?
-    if self.unhelpful? == true
+    if self.unhelpful == true
       unhelpful
       print = "Moderator found review unhelpful"
     else
