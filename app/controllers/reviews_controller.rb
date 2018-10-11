@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_book, only: [:create, :new]
   before_action :set_review, only: [:edit, :update, :destroy, :helpful, :unhelpful]
+
   # GET /reviews
   # GET /reviews.json
   def index
@@ -16,12 +17,14 @@ class ReviewsController < ApplicationController
   def helpful
     @review.helpful = true
     @review.save
+    Notification.create(recipient: @review.user, actor: current_user, action: "moderated your review", notifiable: @review )
     redirect_to request.referrer
   end
 
   def unhelpful
     @review.unhelpful = true
     @review.save
+    Notification.create(recipient: @review.user, actor: current_user, action: "moderated your review", notifiable: @review )
     redirect_to request.referrer
   end
 
