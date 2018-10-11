@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
 
 
-
-  devise_for :admins do
-    resources :reviews
-  end
-
   resources :reviews do
     member do
       put 'helpful' => 'reviews#helpful'

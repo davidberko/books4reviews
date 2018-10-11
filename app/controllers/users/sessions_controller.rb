@@ -19,7 +19,11 @@ class Users::SessionsController < Devise::SessionsController
    protected
 
    def after_sign_in_path_for(resource)
-     current_user_path 
+     if current_user.author? || current_user.reviewer?
+       current_user_path
+     else
+     reviews_path
+    end
    end
 
 
