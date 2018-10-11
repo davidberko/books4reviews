@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
-  before_action :set_book
-  before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_book, only: [:create, :update, :edit, :destroy]
+  before_action :set_review, only: [:edit, :update, :destroy, :helpful, :unhelpful]
   # GET /reviews
   # GET /reviews.json
   def index
@@ -11,6 +11,18 @@ class ReviewsController < ApplicationController
   # GET /reviews/1.json
   def show
     @review = Review.find(params[:id])
+  end
+
+  def helpful
+    @review.helpful = true
+    @review.save
+    redirect_to request.referrer
+  end
+
+  def unhelpful
+    @review.unhelpful = true
+    @review.save
+    redirect_to request.referrer
   end
 
   # GET /reviews/new

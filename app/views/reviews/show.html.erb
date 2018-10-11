@@ -1,19 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Comment:</strong>
-  <%= @review.comment %>
-</p>
+<div id="review-show-container">
+  <p>
+    <strong>Author:</strong>
+    <%= @review.book.user.full_name %>
+  </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @review.user_id %>
-</p>
+  <p>
+    <strong>Book:</strong>
+    <%= @review.book.title %>
+  </p>
+  <p>
+    <strong>Comment:</strong>
+    <%= @review.user.full_name %><br />
+    <strong>Comment:</strong>
+    <%= @review.comment.html_safe %>
+  </p><br />
+  <%= @review.helpful? %>
+  <%= @review.unhelpful? %>
+  <%= link_to "helpful?", helpful_review_path(@review.id), method: :put %>
+  <%= link_to "unhelpful?", unhelpful_review_path(@review.id), method: :put %>
 
-<p>
-  <strong>Book:</strong>
-  <%= @review.book_id %>
-</p>
-
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+</div>

@@ -1,0 +1,15 @@
+<h1>Reviews</h1>
+
+<% @adminreviews.each do |r| %>
+
+<div id="admin-reviews-container">
+  Book: <b><%= r.book.title %></b><br />
+  Written by: <b><%= r.book.user.full_name %></b><br />
+  Book description: <p><%= r.book.description.html_safe %></p><br />
+
+  <h3>Review to Moderate</h3>
+  Reviewed by: <%= r.user.full_name %><br />
+  What they said: <p>"<%= r.comment.html_safe %>"</p>
+  <%= link_to "review", r %>
+</div><br />
+<% end %>

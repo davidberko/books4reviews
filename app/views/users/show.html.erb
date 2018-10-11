@@ -38,6 +38,7 @@
     <h2>Review</h2><%= r.created_at.to_date %><br />
       Rating: <div class="star-rating" data-score= <%= r.rating %> ></div>
       <%= @user.first_name %> said: <%= r.comment.html_safe %><br />
+      <%= r.helpful? %>
   </div><br />
 
   <% end %>
