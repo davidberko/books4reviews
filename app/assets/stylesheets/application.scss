@@ -19,6 +19,27 @@
  @import 'home_pages';
  @import 'charges';
 
+/* admin */
+
+#admin-reviews-container {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: white;
+  padding: 20px;
+  p {
+    padding: 10px;
+
+  }
+  h3 {
+    text-align: center;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #852809;
+  }
+}
+
+
 
  body {
   background-color: #E59866;

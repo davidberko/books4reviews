@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
 
 
+
+  devise_for :admins do
+    resources :reviews
+  end
+
+  resources :reviews do
+    member do
+      put 'helpful' => 'reviews#helpful'
+      put 'unhelpful' => 'reviews#unhelpful'
+    end
+  end
+
   resources :charges
   resources :genres
   resources :notifications do
@@ -30,7 +42,12 @@ Rails.application.routes.draw do
 
   root to: 'home_pages#index'
 
+  get 'admin' => 'reviews#index'
+
+
   get 'author_signup' => 'home_pages#author_signup'
   get 'reviewer_signup' => 'home_pages#reviewer_signup'
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
