@@ -9,7 +9,7 @@ mount_uploader :avatar, AvatarUploader
   has_many :reviews , dependent: :destroy
   has_many :notifications, foreign_key: :recipient_id
 
-  enum access_level: [:author, :reviewer]
+  enum access_level: [:author, :reviewer, :moderator]
 
   has_and_belongs_to_many :claims, join_table: :books_users, association_foreign_key: :book_id, class_name: Book.to_s
 

@@ -6,3 +6,22 @@
   width: 50%;
   margin-left: 25%;
 }
+
+#reviews-index-container {
+  background-color: white;
+  margin-left: 10%;
+  width: 80%;
+  margin-right: 10%;
+  padding: 10px;
+  th {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #852809;
+  }
+  td {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #852809;
+  }
+
+}

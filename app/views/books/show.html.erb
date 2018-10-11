@@ -52,6 +52,10 @@
           <td><b><%= link_to r.user.full_name, user_path(r.user) %></b></td>
           <td class="star-rating" data-score= <%= r.rating %> ></td>
           <td><%= r.comment.html_safe %></td>
+
+        </tr>
+        <tr>
+          <td><%= r.unhelpful? %></td>
         </tr>
         <% end %>
     </tbody>

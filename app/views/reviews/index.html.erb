@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<% if current_user.moderator? %>
+
 <h1>Reviews</h1>
 
-<table>
+<table id="reviews-index-container">
   <thead>
     <tr>
       <th>Author</th>
@@ -29,5 +31,6 @@
 </table>
 
 <br>
-
-<%= link_to 'New Review', new_review_path %>
+<%  else %>
+you're not authorized to be here
+<% end %> 
