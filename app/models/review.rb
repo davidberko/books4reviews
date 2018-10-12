@@ -2,6 +2,10 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :book
 
+  def moderated?
+    !self.helpful & !self.unhelpful == false 
+  end
+
   def helpful?
     if self.helpful == true
       helpful

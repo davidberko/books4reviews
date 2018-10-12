@@ -1,12 +1,15 @@
+<!DOCTYPE html>
 <p id="notice"><%= notice %></p>
 
-<% if current_user.moderator? %>
 
+<% if current_user.moderator? %>
+<body>
 <h1>Reviews</h1>
 
 <table id="reviews-index-container">
   <thead>
     <tr>
+      <th>#</th>
       <th>Author</th>
       <th>Book</th>
       <th>Reviewer</th>
@@ -17,7 +20,9 @@
 
   <tbody>
     <% @reviews.each do |review| %>
-      <tr>
+      <% if review.moderated? %>
+      <tr id="done_row">
+        <td id="review_id"><%= review.id %></div>
         <td><%= review.book.user.full_name %></td>
         <td><%= review.book.title %></td>
         <td><%= review.user.full_name %></td>
@@ -26,6 +31,19 @@
         <td><%= link_to 'Edit', edit_review_path(review) %></td>
         <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+      <% else %>
+      <tr id="row">
+        <td id="review_id"><%= review.id %></div>
+        <td><%= review.book.user.full_name %></td>
+        <td><%= review.book.title %></td>
+        <td><%= review.user.full_name %></td>
+        <td><%= review.comment.html_safe %></td>
+        <td><%= link_to 'Show', review %></td>
+        <td><%= link_to 'Edit', edit_review_path(review) %></td>
+        <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+
+    <% end %>
     <% end %>
   </tbody>
 </table>
@@ -33,4 +51,6 @@
 <br>
 <%  else %>
 you're not authorized to be here
-<% end %> 
+<% end %>
+
+</body>

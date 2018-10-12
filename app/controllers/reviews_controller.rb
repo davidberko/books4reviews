@@ -18,14 +18,17 @@ class ReviewsController < ApplicationController
     @review.helpful = true
     @review.save
     Notification.create(recipient: @review.user, actor: current_user, action: "moderated your review", notifiable: @review )
-    redirect_to request.referrer
+    redirect_to reviews_path
+    flash[:success] = "done"
+
   end
 
   def unhelpful
     @review.unhelpful = true
     @review.save
     Notification.create(recipient: @review.user, actor: current_user, action: "moderated your review", notifiable: @review )
-    redirect_to request.referrer
+    redirect_to reviews_path
+    flash[:success] = "done"
   end
 
   # GET /reviews/new
