@@ -29,6 +29,22 @@
 
 <h1>Welcome Reviewer, <%= current_user.full_name %></h1>
 
+<h2>How I'm doing</h3>
+
+<table>
+  <th>Total Reviews</th>
+  <th>Helpful Reviews</th>
+  <th>Unhelpful Reviews</th>
+  <th>Score</th>
+  <tr>
+    <td><%= current_user.reviews.count %></td>
+    <td><%= @helpful.count %></td>
+    <td><%= @unhelpful.count %></td>
+    <td><%= number_to_percentage(@score * 100, precision: 0) 
+%></td>
+  </tr>
+</table>
+
 
 <div id="currently-reading">
   <h3><b>Currently Reading</b></h3>

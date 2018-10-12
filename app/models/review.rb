@@ -3,7 +3,7 @@ class Review < ApplicationRecord
   belongs_to :book
 
   def moderated?
-    !self.helpful & !self.unhelpful == false 
+    !self.helpful & !self.unhelpful == false
   end
 
   def helpful?
@@ -23,4 +23,5 @@ end
       helpful?
     end
   end
+
 end
