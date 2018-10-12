@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+
   def new_author
     @user = User.new
   end
@@ -15,6 +16,14 @@ class UsersController < ApplicationController
 
   def profile
     @current_user = current_user
+    @helpful = current_user.reviews.where(helpful: true)
+    @unhelpful = current_user.reviews.where(unhelpful: true)
+    @reviews = current_user.reviews
+    unhelpful = @unhelpful.count
+    total = @reviews.count
+    subtotal = total - unhelpful
+    @score = subtotal.to_f / total  
+
   end
 
   def reviewer
