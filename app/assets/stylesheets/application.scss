@@ -20,7 +20,7 @@
  @import 'charges';
 
 /* admin */
- 
+
 #admin-reviews-container {
   width: 80%;
   margin-left: 10%;
@@ -67,23 +67,11 @@
       #home_link:hover {
         text-decoration: none;
       }
-
-
-      #other_links {
-        display: inline-flex;
-        margin-left: 20px;
-        margin-top: 50px;
-        li {
-          margin-left: 10px;
-          a {
-            color: white;
-          }
-        }
-      }
     }
 
     #dropdown-container {
       position: relative;
+      float: right;
     }
 
     .user-dropdown {
@@ -94,22 +82,30 @@
       left: auto;
 
       li {
-        background-color: white;
+        background-color: white; opacity: 0.7;
         text-align: center;
-        width: 120px;
+        width: 300px;
         a {
           color: black;
         }
       }
-
+      .separated-links {
+        border-top-style: outset;
+        border-top-width: 1px;
+        border-top-color: black;
+        background-color: white; opacity: 0.9
+      }
     }
+      .user-dropdown li:hover a {
+        color: #886962;
+      }
     #dropdown-container:hover .user-dropdown {
         display: block;
       }
 
 
     .dropdown {
-      margin-left: 40%;
+      margin-left: 99%;
       position: relative;
       button {
         background-color: #852809;
@@ -136,7 +132,19 @@
 
 
 
+/* Genres index */
 
+#genres-header {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #852809;
+}
+#genre-links {
+  color: white;
+  font-size: 20px;
+  margin-right: 10px;
+  margin-left: 15px;
+}
 
 
 
@@ -177,6 +185,67 @@
       width: 100%;
       margin: 0;
     }
+    html {
+      width: 100%;
+      margin: 0;
+    }
+
+    /* navigation */
+
+    nav {
+      width: 100%;
+      height: 235px;
+      #home_link {
+        margin-top: 50px;
+        font-size: 150px;
+      }
+      #dropdown-container {
+        float: none;
+        width: 400px;
+
+        img {
+          width: 100px;
+          height: 140px;
+        }
+      }
+      .dropdown {
+        margin-left: 32%;
+        button {
+          width: 140px;
+          height: 120px;
+          img {
+            width: 80px;
+            height: 80px;
+          }
+          span {
+            font-size: 35px;
+          }
+        }
+        a {
+          font-size: 30px;
+        }
+      }
+      .user-dropdown {
+        li {
+          height: 80px;
+          a {
+            font-size: 50px;
+          }
+        }
+        .separated-links {
+          li {
+            a {
+              img {
+                width: 20px;
+                height: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+
 
     /* Home page */
 
@@ -343,6 +412,12 @@
           width: 200px;
           height: 200px;
       }
+    }
+      #scorecard-header {
+        font-size: 50px;
+        font-weight: bold;
+        margin-left: 10px;
+      }
       #scorecard-container {
         width: 100%;
         margin: 0;
@@ -353,11 +428,47 @@
           float: none;
           th {
             font-size: 2rem;
+            text-align: center;
           }
           td {
             font-size: 3rem;;
         }
       }
+    }
+    #next-book {
+      font-size: 50px;
+      color: white;
+      margin-left: 10px;
+    }
+    #next-book:hover {
+      background-color: gray;
+    }
+
+    /* Genres index */
+
+    #genres-table {
+      width: 100%;
+    }
+    #genre-links {
+      font-size: 60px;
+  }
+
+  /* Genre Show Page */
+
+  #genre-header {
+    font-size: 80px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: #852809;
+  }
+  #book-span {
+    margin-left: 25%;
+    a {
+      font-size: 30px;
+      color: white;
     }
   }
 }

@@ -1,4 +1,11 @@
-<h1>Genres</h1>
+<h1 id="genres-header">Genres</h1>
 <% @genres.each do |g| %>
-<%= link_to g.name, genre_path(g), style: "color:white;margin-right:5px;font-size:20px;"%>
+
+<table id="genres-table">
+<th></th>
+<tr>
+  <%= link_to g.name, genre_path(g), id: "genre-links"%>
+</tr>
+
+</table>
 <% end %>
