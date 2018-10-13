@@ -51,7 +51,7 @@
 <div id="currently-reading">
   <h3><b>Currently Reading</b></h3>
   <% current_user.claims.each do |c| %>
-  <%= link_to c.title, c, style: "color:white;font-size:20px;" %><br />
+  <%= link_to c.title, c, id: "currently-reading-link" %><br />
   <% end %>
 </div><br />
 
