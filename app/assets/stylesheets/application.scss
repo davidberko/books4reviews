@@ -20,7 +20,7 @@
  @import 'charges';
 
 /* admin */
-
+ 
 #admin-reviews-container {
   width: 80%;
   margin-left: 10%;
@@ -334,4 +334,30 @@
       }
     }
 
+    /* Reviewer profile */
+
+    #profile-pic-container {
+      float: left;
+      width: 50%;
+      img {
+          width: 200px;
+          height: 200px;
+      }
+      #scorecard-container {
+        width: 100%;
+        margin: 0;
+        float: none;
+
+        #scorecard {
+          width: 100%;
+          float: none;
+          th {
+            font-size: 2rem;
+          }
+          td {
+            font-size: 3rem;;
+        }
+      }
+    }
+  }
 }
