@@ -1,5 +1,5 @@
 <div id="profile-pic-container">
-  <%= image_tag current_user.avatar_url(:small).to_s, class: "img-fluid"  %><b><%= current_user.full_name %></b><br />
+  <%= image_tag current_user.avatar_url(:small).to_s, class: "img-fluid"  %><br />
 </div>
 <% if current_user.author? %>
 
@@ -27,17 +27,17 @@
     <% end %>
 <% if current_user.reviewer? %>
 
-<h1>Welcome Reviewer, <%= current_user.full_name %></h1>
+<h1>Welcome Reviewer, <%= current_user.full_name %></h1><br />
 
+
+<h2 id="scorecard-header">My Scorecard</h3>
 
 <table id="scorecard-container">
   <th>Total Reviews</th>
   <th>Helpful</th>
   <th>Unhelpful</th>
   <th>Score</th>
-  <tr id="score-header">
-    <h2>My Scorecard</h3>
-  </tr>
+
   <tr id="scorecard">
     <td><%= current_user.reviews.count %></td>
     <td><%= @helpful.count %></td>
@@ -55,6 +55,6 @@
   <% end %>
 </div><br />
 
-<%= link_to "Your next book", genres_path, style: "color:white;font-size:20px;" %>
+<%= link_to "Your next book", genres_path, id: "next-book" %>
 
 <% end %>

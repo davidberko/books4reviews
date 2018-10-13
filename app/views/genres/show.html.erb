@@ -1,6 +1,6 @@
-<%= @genre.name %>
+<h1 id="genre-header"><%= @genre.name %></h1>
 
 <% @genre.books.each do |g| %>
 
-  <%= image_tag g.avatar_url(:thumb).to_s %><%= link_to g.title, book_path(g) %><br />
+  <span id="book-span"><%= image_tag g.avatar_url(:small).to_s %><%= link_to g.title, book_path(g) %></span><br />
 <% end %>
