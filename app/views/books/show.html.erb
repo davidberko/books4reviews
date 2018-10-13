@@ -2,10 +2,11 @@
 <body>
 <p id="notice"><%= notice %></p>
 
-<div>
-  <%= image_tag @book.avatar_url(:small).to_s, class: "img-fluid" %>
-</div>
 <div id="book-show-details">
+  <div id="book-cover-container">
+    <%= image_tag @book.avatar_url(:small).to_s, class: "img-fluid" %>
+  </div>
+
   <p>
     <strong>Author:</strong>
     <%= @book.user.full_name %>
@@ -18,23 +19,23 @@
 
   <p>
     <strong>Description:</strong>
-    <%= @book.description.html_safe %>
+    <p id="book-description"><%= @book.description.html_safe %></p>
   </p>
 </div>
 <div id="author-books">
-  More Books by this author: <%=link_to @book.user.full_name, user_path(@book.user) %>
+  <b>More Books by this author:</b> <%=link_to @book.user.full_name, user_path(@book.user) %>
 </div><br />
 
 
-<div id="review-section">
-  <strong>Reviews</strong>
+<div id="review-section" style="overflow-x:auto;">
+  <strong><h3>Reviews</h3></strong>
   <% if @book.reviews.blank? %>
     <p>This book hasn't received any reviews yet...</p>
   <% else %>
   <div class='star-rating' data-score=<%= @avg_rating %>></div>
-    <em><%= "#{@book.reviews.size} reviews" %></em>
+    <em><span><%= "#{@book.reviews.size} reviews" %></span></em>
     <% end %>
-  <table>
+  <table id="review-table" >
     <thead>
       <tr>
         <th></th>
@@ -54,29 +55,31 @@
           <td><%= r.comment.html_safe %></td>
 
         </tr>
-        <tr>
-          <td><%= r.unhelpful? %></td>
-        </tr>
-        <% end %>
+
     </tbody>
   </table>
+  <div id="moderation">
+     <%= r.unhelpful? %>
+  </div>
 </div>
+<% end %>
+
 
 
 <% if current_user.reviewer? %>
 
-  <h3>Add to Reading List</h3>
+  <h3 id="reading-list-header">Add to Reading List</h3>
   <% if @book.claims.include? current_user %>
-    <%= link_to "Done reading", unclaim_book_path(@book.id), style: "color:white;font-size:15px;" %>
+    <%= link_to "Done reading", unclaim_book_path(@book.id), id: "done-reading-link" %>
     <% else %>
-    <%= link_to "Add", claim_book_path(@book.id), style: "color:white;font-size:15px;" %>
+    <%= link_to "Add", claim_book_path(@book.id), id: "add-to-list-link" %>
   <% end %>
 
-  <h2>Leave a Review</h2>
+  <h2 id="leave-review-header">Leave a Review</h2>
 
 
   <% if current_user.reviews.where(book: @book).exists? %>
-  <p>You've already reviewed this</p>
+  <p id="already-reviewed">You've already reviewed this</p>
   <% else %>
     <div id="review-links">
       <%= link_to "write a review", new_book_review_path(@book.id), style: "color:white;font-size:15px;" %>
@@ -84,7 +87,6 @@
   <% end %>
 <% end %>
 
-<%= link_to 'Back', books_path, style: "color:white;" %>
 <script>
     $('.star-rating').raty({
       path: '/assets/',
