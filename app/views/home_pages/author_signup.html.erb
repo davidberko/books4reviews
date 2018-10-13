@@ -7,13 +7,14 @@
   <p>Movies are good...</p>
 </div>
 <div id="reading-pic">
-  <%= image_tag "Canva - Woman sitting on stack of books.jpg", style: "width:400px;height:400px;" %>
+  <%= image_tag "Canva - Woman sitting on stack of books.jpg", style: "width:400px;height:400px;", class: "img-fluid" %>
     <p>but books are better!</p>
 </div>
 <div id="author-subscription-container">
   <h3>Author Subscription Plan</h3>
   <%= image_tag "icons8-five-of-five-stars-64.png" %>
-  <p>We've put together a package we know you'll go for. Unlimited reviews. Only $9.99/month. Cancel anytime.</p>
+  <p>We've put together a package we know you'll go for.<br>
+    Unlimited reviews. Only $9.99/month. Cancel anytime.</p>
   <%= form_tag charges_path do %>
     <article>
       <% if flash[:error].present? %>

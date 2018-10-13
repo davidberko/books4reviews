@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     unhelpful = @unhelpful.count
     total = @reviews.count
     subtotal = total - unhelpful
-    @score = subtotal.to_f / total  
+    @score = subtotal.to_f / total
 
   end
 
@@ -56,5 +56,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :avatar, :access_level)
   end
-
 end
