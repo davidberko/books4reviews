@@ -1,5 +1,5 @@
 <div id="profile-pic-container">
-  <%= image_tag current_user.avatar_url(:thumb).to_s, class: "img-fluid"  %><b><%= current_user.full_name %></b><br />
+  <%= image_tag current_user.avatar_url(:small).to_s, class: "img-fluid"  %><b><%= current_user.full_name %></b><br />
 </div>
 <% if current_user.author? %>
 
