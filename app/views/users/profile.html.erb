@@ -29,19 +29,21 @@
 
 <h1>Welcome Reviewer, <%= current_user.full_name %></h1>
 
-<h2>How I'm doing</h3>
 
-<table>
+<table id="scorecard-container">
   <th>Total Reviews</th>
-  <th>Helpful Reviews</th>
-  <th>Unhelpful Reviews</th>
+  <th>Helpful</th>
+  <th>Unhelpful</th>
   <th>Score</th>
-  <tr>
+  <tr id="score-header">
+    <h2>My Scorecard</h3>
+  </tr>
+  <tr id="scorecard">
     <td><%= current_user.reviews.count %></td>
     <td><%= @helpful.count %></td>
     <td><%= @unhelpful.count %></td>
-    <td><%= number_to_percentage(@score * 100, precision: 0) 
-%></td>
+    <td><%= number_to_percentage(@score * 100, precision: 0) %></td>
+
   </tr>
 </table>
 
