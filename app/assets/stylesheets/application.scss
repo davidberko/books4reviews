@@ -226,6 +226,7 @@
         }
       }
       .user-dropdown {
+        z-index: 2;
         li {
           height: 80px;
           a {
@@ -408,6 +409,7 @@
     #profile-pic-container {
       float: left;
       width: 50%;
+
       img {
           width: 200px;
           height: 200px;
@@ -487,6 +489,7 @@
     padding: 10px;
     #book-cover-container {
       float: left;
+      padding-right: 10px;
       img {
         width: 400px;
         height: 450px;
@@ -503,6 +506,7 @@
     margin: 0;
     width: 100%;
     float: none;
+    padding: 10px;
     h3 {
       font-size: 50px;
     }
@@ -518,15 +522,31 @@
     #review-table {
       float: none;
       margin: 0;
-
-      th {
-        font-size: 40px;
-        padding: 70px;
+      #reviewer-name-stars {
+        .reviewer-pic {
+          width: 60%;
+          img {
+            width: 100px;
+            height: 100px;
+          }
+        }
+        .reviewer-link {
+          position: relative;
+          width: 10%;
+        }
+        .star-rating {
+          position: relative;
+          width: 30%;
+        }
       }
-      td {
-        font-size: 40px;
-        height: 60px;
-        padding: 10px;
+      #review-comment {
+        height: 100%;
+        .review {
+          height: 100%;
+          padding-top: 30px;
+          font-size: 40px;
+          width: 60%;
+        }
       }
     }
     #moderation {
@@ -557,4 +577,100 @@
     font-size: 40px;
     text-align: center;
   }
+
+  /* Author Profile */
+
+  #new-book-upload {
+    padding-top: 30px;
+    width: 100%;
+    margin: 0;
+    a {
+      margin-left: 20px;
+      font-size: 40px;
+    }
+  }
+  #author-profile-books {
+    width: 100%;
+    margin: 0;
+    font-size: 3rem;
+    img {
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+  /* New Book Form */
+
+  #new-book-form {
+    width: 100%;
+    margin: 0;
+    .cover-art {
+      font-size: 50px;
+      button {
+        width: 40px;
+        height: 40px;
+      }
+    }
+    .title_field {
+      label {
+        font-size: 50px;
+        padding: 10px;
+      }
+      input {
+        width: 500px;
+        height: 70px;
+        font-size: 50px;
+      }
+    }
+    #amazon-link {
+      font-size: 50px;
+    }
+    .text_field {
+      label {
+        font-size: 40px;
+      }
+    }
+    .genres-field {
+      input[type='checkbox']{
+        width: 35px;
+        height: 35px;
+      }
+      label {
+        font-size: 35px;
+      }
+    }
+    .actions {
+      float: right;
+      font-size: 50px;
+      input[type='button'] {
+        width: 100px;
+        height: 50px;
+        background-color: gray;
+      }
+    }
+    }
+    /* Authors Index */
+
+    #author-index-container {
+      width: 100%;
+      margin: 0;
+      float: none;
+      a {
+        font-size: 50px;
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+        border-bottom-color: #852809;
+      }
+    }
+    #reviewer-index-container {
+      width: 100%;
+      margin: 0;
+      float: none;
+      a {
+        font-size: 50px;
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+        border-bottom-color: #852809;
+      }
+    }
 }

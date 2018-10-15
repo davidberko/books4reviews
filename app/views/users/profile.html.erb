@@ -20,8 +20,8 @@
   <div id="author-profile-books">
     <%= image_tag b.avatar_url(:thumb).to_s, class: "img-fluid" %>
     Title: <b><%= b.title %></b><br />
-    Description: <b><%= b.description.html_safe %></b><br />
-    Genres: <%= b.genres.map { |x| x.name }.join(',') %><br />
+    Description: <%= b.description.html_safe %><br />
+    <b>Genres:</b> <%= b.genres.map { |x| x.name }.join(',') %><br />
   </div>
 
     <% end %>
