@@ -10,4 +10,3 @@ toolbar:
 plugins:
   - uploadimage
   - link
-  - autoresize

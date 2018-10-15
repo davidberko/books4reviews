@@ -1,4 +1,6 @@
 <%= tinymce_assets %>
+
+<body>
 <%= form_with(model: book, local: true) do |form| %>
   <% if book.errors.any? %>
     <div id="error_explanation">
@@ -13,7 +15,6 @@
   <% end %>
 
   <div id="new-book-form">
-
     <div class="field">
 
       <%= form.hidden_field :user_id %>
@@ -24,12 +25,13 @@
       <%= form.file_field :avatar %>
     </div>
 
-    <div class="field">
+    <div class="title_field">
       <%= form.label :title %>
       <%= form.text_field :title %>
     </div>
+    <p id="amazon-link">**Please be sure to include your link to your book on Amazon in the description. Thank you.**</p>
 
-    <div class="field">
+    <div class="text_field">
       <%= form.label :description %>
       <%= form.text_area :description, :class => "tinymce", :rows => 20, :cols => 120 %>
     </div>
@@ -46,4 +48,17 @@
     </div>
   </div>
 <% end %>
+<script>
+tinymce.init({
+  selector: 'textarea',
+  plugins: [ 'code', 'lists' ],
+  mobile: {
+    theme: 'mobile',
+    plugins: [ 'autosave', 'lists', 'autolink' ],
+    toolbar: [ 'link', 'undo', 'bold', 'italic', 'styleselect' ]
+    }
+  });
+
+</script>
+</body>
 <%= tinymce %>
