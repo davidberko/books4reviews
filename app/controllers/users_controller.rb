@@ -11,6 +11,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @avg_rating = if @user.reviews.blank?
+    0
+    else
+      @user.reviews.average(:rating).round(2)
+    end
   end
 
 
@@ -28,10 +33,12 @@ class UsersController < ApplicationController
 
   def reviewer
     @users = User.where(["access_level = ?", "1"])
+    @users.sort_by { |n| n.reviews.length }
   end
 
   def author
     @authors = User.where(access_level: :author)
+    @authors.joins(:review).merge(Review.reorder(created_at: :desc))
   end
 
   def edit
@@ -56,4 +63,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :avatar, :access_level)
   end
+
 end

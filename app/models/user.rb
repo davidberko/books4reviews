@@ -18,6 +18,7 @@ def full_name
   first_name + " " + last_name
 end
 
-
-
+def score
+  self.reviews.where(helpful: true)
+end
 end
