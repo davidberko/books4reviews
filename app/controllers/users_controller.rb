@@ -32,13 +32,11 @@ class UsersController < ApplicationController
   end
 
   def reviewer
-    @users = User.where(["access_level = ?", "1"])
-    @users.sort_by { |n| n.reviews.length }
+    @users = User.where(["access_level = ?", "1"]).order('first_name ASC')
   end
 
   def author
-    @authors = User.where(access_level: :author)
-    @authors.joins(:review).merge(Review.reorder(created_at: :desc))
+    @authors = User.where(access_level: :author).order('first_name ASC')
   end
 
   def edit
