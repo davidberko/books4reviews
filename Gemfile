@@ -33,7 +33,7 @@ gem 'tinymce-rails-imageupload', github: 'PerfectlyNormal/tinymce-rails-imageupl
  gem 'carrierwave'
  gem 'fog'
  gem "aws-sdk-s3", require: false
-
+ gem 'figaro'
 
 
  gem 'will_paginate', '~> 3.1.0'

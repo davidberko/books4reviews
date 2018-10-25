@@ -11,8 +11,8 @@ local:
 # amazon:
 amazon:
   service: S3
-  access_key_id: "AKIAI2K2ZJKIZB5UJWGA"
-  secret_access_key: "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"
+  access_key_id: ENV['aws_access_key_id']
+  secret_access_key: ENV['aws_secret_access_key']
   region: "us-east-1"
   bucket: "books4reviews"
 
