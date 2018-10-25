@@ -32,6 +32,8 @@ gem 'tinymce-rails-imageupload', github: 'PerfectlyNormal/tinymce-rails-imageupl
  gem 'mini_magick'
  gem 'carrierwave'
  gem 'fog'
+ gem "aws-sdk-s3", require: false
+
 
 
  gem 'will_paginate', '~> 3.1.0'
