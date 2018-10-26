@@ -51,7 +51,8 @@
 <script>
 tinymce.init({
   selector: 'textarea',
-  plugins: [ 'code', 'lists' ],
+  plugins: [ 'code', 'lists', 'autolink' ],
+  toolbar: [ 'link', 'undo', 'bold', 'italic', 'styleselect' ]
   mobile: {
     theme: 'mobile',
     plugins: [ 'autosave', 'lists', 'autolink' ],
