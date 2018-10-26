@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
   def helpful
     @review.helpful = true
     @review.save
-    Notification.create(recipient: @review.user, actor: current_user, action: "moderated your review", notifiable: @review )
+    Notification.create(recipient: @review.user, actor: current_user, action: "moderated your review on", notifiable: @review )
     redirect_to reviews_path
     flash[:success] = "done"
 
@@ -26,7 +26,7 @@ class ReviewsController < ApplicationController
   def unhelpful
     @review.unhelpful = true
     @review.save
-    Notification.create(recipient: @review.user, actor: current_user, action: "moderated your review", notifiable: @review )
+    Notification.create(recipient: @review.user, actor: current_user, action: "moderated your review on", notifiable: @review )
     redirect_to reviews_path
     flash[:success] = "done"
   end
