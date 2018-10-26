@@ -10,7 +10,7 @@
   <% @user.books.each do |b| %>
 
 
- 
+
 
   <div id="author-show-page-book">
     <%= image_tag b.avatar_url(:small).to_s, class: "img-fluid" %>
@@ -32,13 +32,13 @@
   <% @user.reviews.each do |r| %>
 
   <div id="user-reviews">
-    <%= image_tag r.book.avatar_url(:small).to_s, class: "img-fluid" %><br />
+    <%= image_tag r.book.avatar_url(:small).to_s, class: "img-fluid", id: "book_image" %><br />
     <b><%= r.book.title %><b><br /> by <%= r.book.user.first_name + " " + r.book.user.last_name %><br />
 
     <h2>Review</h2><%= r.created_at.to_date %><br />
       Rating: <div class="star-rating" data-score= <%= r.rating %> ></div>
       <%= @user.first_name %> said: <%= r.comment.html_safe %><br />
-      <%= r.helpful? %>
+      **<i><%= r.helpful? %></i>
   </div><br />
 
   <% end %>
