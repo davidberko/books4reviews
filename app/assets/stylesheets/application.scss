@@ -345,6 +345,10 @@
     #author-subscription-container {
       margin: 0;
       width: 100%;
+      a {
+        font-size: 40px;
+        margin-left: 50%;
+      }
       h3 {
         font-size: 80px;
         font-weight:bold;
@@ -353,12 +357,13 @@
         height: 80px;
         width: 100px;
       }
+
       p {
         margin-left: 25%;
         font-size: 3rem;
       }
       form {
-        margin-left: 10%;
+        margin-left: 40%;
 
       }
       .stripe-button-el span{
