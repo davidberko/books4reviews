@@ -1,5 +1,7 @@
 <%= form_for @message, url: create_message_url do |f| %>
+
   <%= notice %>
+<h1>How Can We Help You</h1>  
 <div id="new_contact_us_message">
     <%= @message.errors.full_messages.join(', ') %>
 
