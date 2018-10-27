@@ -1,0 +1,14 @@
+<%= form_for @message, url: create_message_url do |f| %>
+  <%= notice %>
+<div id="new_contact_us_message">
+  <%= @message.errors.full_messages.join(', ') %>
+
+  <%= f.text_field :name, placeholder: 'name' %><br />
+  <%= f.email_field :email, placeholder: 'email' %><br />
+  <%= f.text_area :body, placeholder: 'body', size: "40x6" %><br />
+</div>
+<div id="actions">
+  <%= f.submit 'Send' %>
+</div>
+
+<% end %>

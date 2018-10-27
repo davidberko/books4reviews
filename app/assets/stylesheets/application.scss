@@ -19,6 +19,25 @@
  @import 'home_pages';
  @import 'charges';
 
+ /* Contact Us */
+
+ #new_contact_us_message {
+   width: 60%;
+   margin-left: 20%;
+   margin-right: 20%;
+   font-size: 30px;
+   input {
+     width: 300px;
+     height: 40px;
+     margin-bottom: 10px;
+   }
+ }
+ #actions {
+   width: 60%;
+   margin-left: 20%;
+   margin-right: 20%;
+ }
+
 /* admin */
 
 #admin-reviews-container {
@@ -797,5 +816,23 @@
       margin: 0;
       margin-bottom: 10px;
       font-size: 2rem;
+    }
+
+    /* Contact Us */
+
+    #new_contact_us_message {
+      width: 100%;
+      margin: 0;
+      margin-left: 20px;
+      font-size: 50px;
+      input {
+        width: 400px;
+        height: 100px;
+      }
+    }
+    #actions {
+      width: 100%;
+      margin: 0;
+      margin-left: 20px;
     }
 }

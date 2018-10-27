@@ -42,6 +42,8 @@ gem 'tinymce-rails-imageupload', github: 'PerfectlyNormal/tinymce-rails-imageupl
  gem 'mini_racer'
 
  gem 'stripe'
+ gem 'sendgrid-ruby'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
