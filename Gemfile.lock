@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/PerfectlyNormal/tinymce-rails-imageupload.git
-  revision: dd7ba5d2fcc088ed8053a7ca54b304852dee741a
+  revision: f0f85f7b10e4400167738c2af6079362d470a33f
   specs:
     tinymce-rails-imageupload (4.0.17.beta.3)
       railties (>= 3.2, < 6)
@@ -56,7 +56,7 @@ GEM
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
-    autoprefixer-rails (9.1.4)
+    autoprefixer-rails (9.3.1)
       execjs
     aws-eventstream (1.0.1)
     aws-partitions (1.106.0)
@@ -83,13 +83,14 @@ GEM
       sass (>= 3.5.2)
     builder (3.2.3)
     byebug (10.0.2)
-    capybara (3.8.2)
+    capybara (3.10.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
       rack (>= 1.6.0)
       rack-test (>= 0.6.3)
-      xpath (~> 3.1)
+      regexp_parser (~> 1.2)
+      xpath (~> 3.2)
     carrierwave (1.2.3)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
@@ -220,7 +221,7 @@ GEM
       multi_json (~> 1.10)
     fog-local (0.6.0)
       fog-core (>= 1.27, < 3.0)
-    fog-openstack (0.3.5)
+    fog-openstack (0.3.7)
       fog-core (>= 1.45, <= 2.1.0)
       fog-json (>= 1.0)
       ipaddress (>= 0.8)
@@ -271,7 +272,7 @@ GEM
     fog-voxel (0.1.0)
       fog-core
       fog-xml
-    fog-vsphere (2.3.0)
+    fog-vsphere (2.4.0)
       fog-core
       rbvmomi (~> 1.9)
     fog-xenserver (1.0.0)
@@ -286,7 +287,7 @@ GEM
       activesupport (>= 4.2.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    i18n (1.1.0)
+    i18n (1.1.1)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
     ipaddress (0.8.3)
@@ -307,7 +308,7 @@ GEM
     loofah (2.2.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
-    mail (2.7.0)
+    mail (2.7.1)
       mini_mime (>= 0.1.1)
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
@@ -327,10 +328,10 @@ GEM
     multipart-post (2.0.0)
     netrc (0.11.0)
     nio4r (2.3.1)
-    nokogiri (1.8.4)
+    nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
-    ovirt-engine-sdk (4.2.4)
+    ovirt-engine-sdk (4.2.5)
       json (>= 1, < 3)
     pg (1.1.3)
     popper_js (1.14.3)
@@ -375,6 +376,7 @@ GEM
       json (>= 1.8)
       nokogiri (~> 1.5)
       trollop (~> 2.1)
+    regexp_parser (1.2.0)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
@@ -395,9 +397,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    selenium-webdriver (3.14.0)
+    selenium-webdriver (3.14.1)
       childprocess (~> 0.5)
-      rubyzip (~> 1.2)
+      rubyzip (~> 1.2, >= 1.2.2)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -415,7 +417,7 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
-    tinymce-rails (4.8.3)
+    tinymce-rails (4.8.4)
       railties (>= 3.1.1)
     trollop (2.9.9)
     tzinfo (1.2.5)
@@ -438,7 +440,7 @@ GEM
     will_paginate (3.1.6)
     xml-simple (1.1.5)
     xmlrpc (0.3.0)
-    xpath (3.1.0)
+    xpath (3.2.0)
       nokogiri (~> 1.8)
 
 PLATFORMS
