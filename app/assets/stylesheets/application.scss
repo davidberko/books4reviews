@@ -201,6 +201,14 @@
     }
   }
 
+  #books-table {
+    #each_book {
+      border-top-style: solid;
+      border-top-width: 1px;
+      border-top-color: #852809;
+    }
+  }
+
   @media screen and (max-device-width: 700px) {
 
     body {

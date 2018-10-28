@@ -19,14 +19,17 @@
 
   <tbody>
     <% @books.each do |book| %>
-      <tr>
+      <tr id="each_book">
         <td><%= image_tag book.avatar_url(:small).to_s, class: "img-fluid" %></td>
         <td><b><%= book.user.first_name + " " + book.user.last_name %></b></td>
         <td><b><%= book.title %></b></td>
         <td>
          <p><%=  truncate(book.description, :ommision => "...", :length => 200, escape: false) %></p>
        </td>
-        <td><%= link_to 'Show', book %></td>
+        <td><%= link_to book_path(book) do %>
+          <%= image_tag "icons8-forward-24.png" %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
