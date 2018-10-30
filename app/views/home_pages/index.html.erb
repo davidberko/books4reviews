@@ -1,23 +1,26 @@
-<h1 id="main-banner">Books4Reviews</h1>
+<!DOCTYPE html>
+  <body>
+  <h1 id="main-banner">Books4Reviews</h1>
 
-<div id="author-pitch">
-  <h4>Self-published Author?</h4>
+  <div id="author-pitch">
+    <h4>Self-published Author?</h4>
 
-  <p>Tired of seeing your books on Amazon go nowhere? Looking for a way to boost sales?</p>
-  <p>Take it from me personally, I wasn't interested in buying 5 reviews for $100, and they're not even verified Amazon purchase
-    reviews to boot, or reading the cliche blog posts on how to get up in the ranks by honing your keywords in the description,
-    a better cover, and so on. No. Readers like to see validation that a book may be worthwhile. They like to see customer feedback.
-    Reviews. Are you in need of them? <%= link_to "read on", author_signup_path %>
-</div>
-<div id="reviewer-pitch">
-  <h4>Readers, Looking fo the Next Great Author?</h4>
+    <p>Tired of seeing your books on Amazon go nowhere? Looking for a way to boost sales?</p>
+    <p>Take it from me personally, I wasn't interested in buying 5 reviews for $100, and they're not even verified Amazon purchase
+      reviews to boot, or reading the cliche blog posts on how to get up in the ranks by honing your keywords in the description,
+      a better cover, and so on. No. Readers like to see validation that a book may be worthwhile. They like to see customer feedback.
+      Reviews. Are you in need of them? <%= link_to "read on", author_signup_path %>
+  </div>
+  <div id="reviewer-pitch">
+    <h4>Readers, Looking fo the Next Great Author?</h4>
 
-  <p>Have we got the books for you. Hundreds of free titles. Free books in exchange for an honest review. And you feel good helping
-    your favorite new author out, what could be better?
-    <%= link_to "tell me more!", reviewer_signup_path %>
-  </p>
-</div>
-<div class="body-container">
-  <h3>Already a member?</h3>
-    <%= link_to "Log in", new_user_session_path %>
-</div>
+    <p>Have we got the books for you. Hundreds of free titles. Free books in exchange for an honest review. And you feel good helping
+      your favorite new author out, what could be better?
+      <%= link_to "tell me more!", reviewer_signup_path %>
+    </p>
+  </div>
+  <div class="body-container">
+    <h3>Already a member?</h3>
+      <%= link_to "Log in", new_user_session_path %>
+  </div>
+  </body>
