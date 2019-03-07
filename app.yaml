@@ -1,0 +1,12 @@
+entrypoint: bundle exec rackup --port $PORT
+env: flex
+runtime: ruby
+
+env_variables:
+  SECRET_KEY_BASE: 914f67515a861758bec8c2fe692c6c4557c19f84d41101583fe3248be3caaa1cbe3e911c65112d098f0945a2226de180ad0e82373e3c8b3be8d9544e02f309b1
+  POSTGRES_USER: dmberko11
+  POSTGRES_PASSWORD: db101191
+  POSTGRES_DATABASE: postgres
+
+beta_settings:
+  cloud_sql_instances: books4reviews:us-central1:postgres-instance

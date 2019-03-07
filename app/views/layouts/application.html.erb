@@ -61,7 +61,13 @@
   </nav>
 
   <body>
-
-    <%= yield %>
+    <div id="site_wrapper">
+      <div id="site_content"><%= yield %></div>
+      <div id="footer">
+          Books4Reviews all rights reserved ©2019 DMB WebDev
+      </div>
+    </div>
   </body>
+
+
 </html>

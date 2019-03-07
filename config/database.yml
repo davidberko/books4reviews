@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: books4reviews_production
-  username: books4reviews
-  password: <%= ENV['BOOKS4REVIEWS_DATABASE_PASSWORD'] %>
+  database: postgres
+  username: dmberko11
+  password: db101191
+  host: /cloudsql/books4reviews:us-central1:postgres-instance
