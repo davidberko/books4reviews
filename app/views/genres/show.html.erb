@@ -2,5 +2,11 @@
 
 <% @genre.books.each do |g| %>
 
-  <span id="book-span"><%= image_tag g.avatar_url(:small).to_s %><%= link_to g.title, book_path(g) %></span><br />
+  <div id="book-span">
+    <%= image_tag g.avatar_url(:small).to_s %>
+    <p>
+      <%= link_to g.title, book_path(g) %><br />by <%= g.user.full_name %>
+      <%= image_tag("icons8-literature-filled-100.png")%><button type="button"><%= link_to "explore", book_path(g), id: "explore_link" %></button>
+    </p>
+  </div><br />
 <% end %>

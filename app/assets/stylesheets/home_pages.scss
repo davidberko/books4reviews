@@ -6,12 +6,15 @@
   border-bottom-style: solid;
   border-bottom-width: 1px;
   border-bottom-color: #852809;
+  box-shadow: 10px 5px;
 }
 
 
 #pitch-container {
   display: inline-block;
   background-color: white;
+  height: 100%;
+  margin-bottom: 0;
   #author-pitch {
     width: 50%;
     float: left;
@@ -29,17 +32,30 @@
 }
 .body-container {
   position: relative;
-  height: 100px;
+  height: 100%;
   width: 50%;
   padding-left: 20px;
   margin-left: 20%;
   margin-right: 20%;
-  margin-bottom: 10%;
   background-color: #852809;
   color: white;
   h3 {
-    a {
-      font-size: 14px;
+    margin-left: 20%;
+    margin-top: 10%;
+    padding-top: 5%;
+  }
+  button {
+    width: 60px;
+    height: 40px;
+    border-radius: 10%;
+    border-style: groove;
+    border-color: black;
+    border-width: thin;
+
+    #login_link {
+      font-size: 0.8rem;
+      font-weight: bolder;
+      color: #9D9492;
       text-decoration: none;
     }
   }
