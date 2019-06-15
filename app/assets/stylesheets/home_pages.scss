@@ -133,10 +133,30 @@
       margin-bottom: 50px;
     }
     #rules {
-      padding: 10px;
+      padding-right: 30px;
+      padding-left: 30px;
+      margin: 0;
+      margin-bottom: 30px;
+      p {
+        font-family: "Courier New", Courier, monospace;
+      }
+
       a {
         margin-bottom: 10px;
         padding-left: 10px;
+        font-size: 1rem;
+      }
+    }
+    
+    #paid-sub {
+      text-decoration: line-through;
+    }
+    #author-sub-button {
+      border-radius: 25%;
+      background-color: #75A4DA;
+      a {
+        text-decoration: none;
+        color: white;
       }
     }
   }

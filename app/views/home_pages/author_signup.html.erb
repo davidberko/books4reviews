@@ -1,44 +1,51 @@
-<div id="main-author-signup-container">
-  <h1 id="author-signup-header"><%= image_tag "icons8-literature-filled-50.png" %> Become an Author With Us!</h1>
+<!DOCTYPE html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+   </script>
+</head>
+<body>
+  <div id="main-author-signup-container">
+    <h1 id="author-signup-header"><%= image_tag "icons8-literature-filled-50.png" %> Become an Author With Us!</h1>
 
 
-  <h3>You're already used to paying for Netflix or Spotify, why not invest into your future success as an author?</h3>
-  <div id="netflix">
-    <%= image_tag "app-entertainment-ipad-265685.jpg", style: "width:400px;height:400px;" %>
-    <p>Movies are good...</p>
-  </div>
-  <div id="reading-pic">
-    <%= image_tag "Canva - Woman sitting on stack of books.jpg", style: "width:400px;height:400px;", class: "img-fluid" %>
-      <p>but books are better!</p>
-  </div>
-  <div id="author-subscription-container">
-    <div id="rules"><p>Here's how it works. You make your book on Amazon permanently free by
-      listing it on other platforms like Smashwords and elsewhere for free and telling
-      Amazon you see it free on those sites or by going into your KDP account and making it
-      free (temporarily)...that way reviewers "purchase" your book at no charge to them but their Amazon
-      review is still a verified Amazon purchase review, the best kind of review to help your
-      sales out. Pretty simple, right?</p>
-      <a href="https://www.indiesunlimited.com/2016/03/03/how-to-set-your-book-free-on-amazon/">Make it free guide</a><br />
+    <h3>You're already used to paying for Netflix or Spotify, why not invest into your future success as an author?</h3>
+    <div id="netflix">
+      <%= image_tag "app-entertainment-ipad-265685.jpg", style: "width:400px;height:400px;" %>
+      <p>Movies are good...</p>
     </div>
-    <h3>Author Subscription Plan</h3>
-    <%= image_tag "icons8-five-of-five-stars-64.png" %>
-    <p>We've put together a package we know you'll go for.<br>
-      Unlimited reviews. Only $9.99/month. Cancel anytime.</p>
-    <%= form_tag charges_path do %>
-      <article>
-        <% if flash[:error].present? %>
-          <div id="error_explanation">
-            <p><%= flash[:error] %></p>
-          </div>
-        <% end %>
-      </article>
+    <div id="reading-pic">
+      <%= image_tag "Canva - Woman sitting on stack of books.jpg", style: "width:400px;height:400px;", class: "img-fluid" %>
+        <p>but books are better!</p>
+    </div>
+    <div id="author-subscription-container">
+      <div id="rules" ><p>Here's how it works. You make your book on Amazon permanently free by
+        listing it on other platforms like Smashwords and elsewhere for free and telling
+        Amazon you see it free on those sites or by going into your KDP account and making it
+        free (temporarily)...that way reviewers "purchase" your book at no charge to them but their Amazon
+        review is still a verified Amazon purchase review, the best kind of review to help your
+        sales out. Pretty simple, right?</p>
+        <a href="https://www.indiesunlimited.com/2016/03/03/how-to-set-your-book-free-on-amazon/">Make it free guide</a><br />
+      </div>
 
-      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-              data-description="Monthly author subscription"
-              data-amount="999"
-              data-label="subscribe"
-              data-locale="auto"></script>
-    <% end %>
+      <h3>Author Subscription Plan</h3>
+      <%= image_tag "icons8-five-of-five-stars-64.png" %>
+      <p>We've put together a package we know you'll go for.<br>
+        Unlimited reviews. Let our community of reviewers put you on the map.</p><p id="paid-sub">Only $9.99/month. Cancel anytime.</p>
+        <p><button id="author-sub-button" type="button"><%= link_to "FREE", new_author_path %></button>, for a limited time</p>
+
+    </div>
   </div>
-</div>
+  <script>
+    var rules_div = document.GetElementById("rules").firstChild.innerHTML;
+    var truncated = rules_div.charAt(100);
+    var new_par = rules_div - truncated
+    $(window).resize(function() {
+      if ($(this).width() < 500) {
+          return new_par;
+        }
+     }
+    });
+
+  </script>
+</body>
