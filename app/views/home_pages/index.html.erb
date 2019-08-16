@@ -1,25 +1,53 @@
+<DOCTYPE! html>
+<head>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+</head>
+
 <h2 id="main-banner"><i>Write, Read, Review</i></h2>
 
 <div id="pitch-container">
   <div id="author-pitch">
     <h4>Self-published Author?</h4>
 
-    <p>Tired of seeing your books on Amazon go nowhere? Looking for a way to boost sales?</p>
-    <p>Take it from me personally, I wasn't interested in buying 5 reviews for $100, and they're not even verified Amazon purchase
-      reviews to boot, or reading the cliche blog posts on how to get up in the ranks by honing your keywords in the description,
+    <p>
+      Tired of seeing your books on Amazon go nowhere? Looking for a way to boost sales?
+    </p>
+    <p>
+      Take it from me personally, I wasn't interested in buying 5 reviews for $100, and they're not even verified Amazon purchase
+      reviews to boot, or reading the cliche blog posts on how to get up in the ranks by
+    </p> 
+    <p id="truncated">honing your keywords in the description,
       a better cover, and so on. No. Readers like to see validation that a book may be worthwhile. They like to see customer feedback.
-      Reviews. Are you in need of them? <%= link_to "read on", author_signup_path %>
+      Reviews. Are you in need of them? 
+    </p>
+    <%= link_to "read on", author_signup_path %>
   </div>
   <div id="reviewer-pitch">
     <h4>Readers, Looking fo the Next Great Author?</h4>
 
-    <p>Have we got the books for you. Hundreds of free titles. Free books in exchange for an honest review. And you feel good helping
+    <p>
+      Have we got the books for you. Hundreds of free titles. Free books in exchange for an honest review. And you feel good helping
       your favorite new author out, what could be better?
-      <%= link_to "tell me more!", reviewer_signup_path %>
     </p>
+    <%= link_to "tell me more!", reviewer_signup_path %>
   </div>
 </div>
 <div class="body-container">
   <h3>Already a member?   <button type="button"><%= link_to "Log in", new_user_session_path, id: "login_link" %></button></h3>
 
 </div>
+<script>
+
+  if ($(window).width() < 600) {
+    alert("welcome to mobile!");
+  }
+  else {
+    $(window).load(function(){
+      $("#truncated").addClass("hide");
+      $("#truncated").append("...");
+    });
+  }
+    
+  
+</script>

@@ -7,6 +7,14 @@
   border-bottom-width: 1px;
   border-bottom-color: #852809;
   box-shadow: 10px 5px;
+  font-size: 1.5em;
+}
+
+.show {
+  display: block;
+}
+.hide {
+  display: none;
 }
 
 
@@ -45,7 +53,7 @@
     padding-top: 5%;
   }
   button {
-    width: 60px;
+    width: 100px;
     height: 40px;
     border-radius: 10%;
     border-style: groove;
@@ -53,10 +61,11 @@
     border-width: thin;
 
     #login_link {
-      font-size: 0.8rem;
+      font-size: 0.6em;
       font-weight: bolder;
       color: #9D9492;
       text-decoration: none;
+      text-align: center;
     }
   }
 }
@@ -64,22 +73,24 @@
 
 /* Author Signup Page */
 
-
+  #ASH_container {
+    background-color: #C7CCD3;
     #author-signup-header {
       img {
         margin-top: 20px;
         margin-bottom: 0;
         margin-left: 20%;
       }
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-    text-align: center;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-bottom-color: #852809;
-
+      width: 80%;
+      margin-left: 10%;
+      margin-right: 10%;
+      text-align: center;
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      border-bottom-color: #852809;
+    }
   }
+
   #netflix {
     float: left;
     width: 50%;
@@ -105,6 +116,16 @@
 
   #main-author-signup-container {
     display: block;
+    h3 {
+      margin-left: 10%;
+      margin-right: 10%;
+      width: 80%;
+      text-align: center;
+      color: white;
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      border-bottom-color: #852809;
+    }
   }
   #author-subscription-container {
     width: 40%;
@@ -113,15 +134,7 @@
     background-color: white;
     padding-bottom: 20px;
 
-    h3 {
-      margin-left: 10%;
-      margin-right: 10%;
-      width: 80%;
-      text-align: center;
-      border-bottom-style: solid;
-      border-bottom-width: 1px;
-      border-bottom-color: #852809;
-    }
+
     img {
       margin-left: 40%;
     }
@@ -147,7 +160,7 @@
         font-size: 1rem;
       }
     }
-    
+
     #paid-sub {
       text-decoration: line-through;
     }
@@ -187,4 +200,15 @@
   margin-bottom: 15% ;
   text-align: center;
   background-color: white;
+}
+
+@media screen and (max-device-width: 500px) {
+  #main-banner {
+    font-size: 4.2em;
+    height: 150px;
+    text-align: justify;
+    padding-top: 20px;
+    padding-left: 20%;
+    color: #89745A;
+  }
 }

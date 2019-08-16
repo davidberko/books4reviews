@@ -235,9 +235,13 @@ body {
     margin-right: 10%;
     background-color: white;
     padding: 50px;
+    .profile-pic {
 
-    form {
+        input {
+          width: 4em;
+          height: 3em;
 
+        }
     }
   }
 
@@ -378,6 +382,8 @@ body {
     }
 
     /* author pitch page */
+
+    
     h1 {
       font-size: 4rem;
       padding: 10px;
@@ -469,24 +475,27 @@ body {
       width: 100%;
       margin: 0;
       h2 {
-        font-size: 50px;
+        font-size: 6rem;
+        text-decoration: underline;
       }
       .profile-pic {
         label {
-          font-size: 40px;
+          font-size: 5rem;
         }
+
       }
       .user-roles {
         display: none;
       }
       .user-name {
         label {
-          font-size: 30px;
+          font-size: 4rem;
           padding-right: 20px;
+          font-weight: bold;
         }
         input {
-          width: 400px;
-          height: 80px;
+          width: 600px;
+          height: 120px;
           font-size: 50px;
           border-style: solid;
           border-width: 1px;
@@ -496,20 +505,26 @@ body {
       }
       .field {
         label {
-          font-size: 30px;
+          font-size: 4rem;
+          font-weight: bold;
         }
         input {
-          width: 400px;
-          height: 80px;
-          font-size: 50px;
+          width: 900px;
+          height: 120px;
           border-style: solid;
           border-width: 1px;
           border-color: #852809;
+          font-size: 6rem;
         }
       }
       .actions {
-        float: right;
-        margin-right: 25%;
+        margin-top: 5%;
+        input {
+          width: 200px;
+          height: 150px;
+          border-radius: 25%;
+          font-size: 3rem;
+        }
       }
 
     }
@@ -534,6 +549,10 @@ body {
             margin-left: 25%;
           }
       }
+      .first_field {
+      margin-top: 200px;
+      }
+
       .check_field {
         margin-left: 25%;
         font-size: 50px;
@@ -868,6 +887,7 @@ body {
     /* footer */
 
     #footer {
-      font-size: 2rem;
+      font-size: 3rem;
+      height: 150px;
     }
 }

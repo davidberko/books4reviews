@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-
-<head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
-   </script>
-</head>
 <body>
   <div id="main-author-signup-container">
-    <h1 id="author-signup-header"><%= image_tag "icons8-literature-filled-50.png" %> Become an Author With Us!</h1>
-
+    <div id="ASH_container">
+      <h1 id="author-signup-header"><%= image_tag "icons8-literature-filled-50.png" %> Become an Author With Us!</h1>
 
     <h3>You're already used to paying for Netflix or Spotify, why not invest into your future success as an author?</h3>
     <div id="netflix">
@@ -19,12 +13,13 @@
         <p>but books are better!</p>
     </div>
     <div id="author-subscription-container">
-      <div id="rules" ><p>Here's how it works. You make your book on Amazon permanently free by
+      <div id="rules" ><p class="rules">Here's how it works. You make your book on Amazon permanently free by
         listing it on other platforms like Smashwords and elsewhere for free and telling
         Amazon you see it free on those sites or by going into your KDP account and making it
         free (temporarily)...that way reviewers "purchase" your book at no charge to them but their Amazon
         review is still a verified Amazon purchase review, the best kind of review to help your
         sales out. Pretty simple, right?</p>
+        <p class="mobile-rules"></p>
         <a href="https://www.indiesunlimited.com/2016/03/03/how-to-set-your-book-free-on-amazon/">Make it free guide</a><br />
       </div>
 
@@ -36,16 +31,17 @@
 
     </div>
   </div>
-  <script>
-    var rules_div = document.GetElementById("rules").firstChild.innerHTML;
-    var truncated = rules_div.charAt(100);
-    var new_par = rules_div - truncated
-    $(window).resize(function() {
-      if ($(this).width() < 500) {
-          return new_par;
-        }
-     }
-    });
-
-  </script>
 </body>
+<script>
+  let para = document.getElementById("rules").firstChild.innerHTML;
+  let smaller = para.charAt(200);
+  let newPara = para - smaller; 
+
+  let para2 = document.querySelector(".mobile-rules");
+
+  if (window.screen.width < 500) {
+    document.getElementById("rules").firstChild.style.display = "none";
+    var message = document.createElement("P");
+    document.querySelector(".rules").appendChild(message).innerHTML = "does this work?";
+  }
+</script>
