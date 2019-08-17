@@ -261,6 +261,7 @@ body {
 
   @media screen and (max-device-width: 500px) {
 
+  
 
 
     /* navigation */
@@ -889,5 +890,8 @@ body {
     #footer {
       font-size: 3rem;
       height: 150px;
+      border-top-color: black;
+      border-top-width: 3px;
+      border-top-style: groove;
     }
 }

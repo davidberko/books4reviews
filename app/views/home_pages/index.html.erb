@@ -3,12 +3,12 @@
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
     </script>
 </head>
-
+<body>
 <h2 id="main-banner"><i>Write, Read, Review</i></h2>
 
 <div id="pitch-container">
   <div id="author-pitch">
-    <h4>Self-published Author?</h4>
+    <h2>Self-published Author?</h2>
 
     <p>
       Tired of seeing your books on Amazon go nowhere? Looking for a way to boost sales?
@@ -24,7 +24,7 @@
     <%= link_to "read on", author_signup_path %>
   </div>
   <div id="reviewer-pitch">
-    <h4>Readers, Looking fo the Next Great Author?</h4>
+    <h2>Readers, Looking fo the Next Great Author?</h2>
 
     <p>
       Have we got the books for you. Hundreds of free titles. Free books in exchange for an honest review. And you feel good helping
@@ -33,20 +33,27 @@
     <%= link_to "tell me more!", reviewer_signup_path %>
   </div>
 </div>
+<div id=book_bottom>
+
+</div>
 <div class="body-container">
   <h3>Already a member?   <button type="button"><%= link_to "Log in", new_user_session_path, id: "login_link" %></button></h3>
 
 </div>
+</body>
 <script>
 
   if ($(window).width() < 600) {
     alert("welcome to mobile!");
   }
   else {
-    $(window).load(function(){
       $("#truncated").addClass("hide");
-      $("#truncated").append("...");
-    });
+      $("#truncated").after("<p id='elipses'>...</p>");
+      $("#elipses").css("color", "blue");
+      $("#elipses").addClass("pointerCursor");
+      $("#elipses").on("click", function(){
+        $("#truncated").toggle();
+      });
   }
     
   
