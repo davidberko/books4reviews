@@ -1,6 +1,6 @@
 <%= tinymce_assets %>
 
-<body>
+<body id="book_form_container">
 <%= form_with(model: book, local: true) do |form| %>
   <% if book.errors.any? %>
     <div id="error_explanation">

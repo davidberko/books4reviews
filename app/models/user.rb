@@ -14,6 +14,10 @@ mount_uploader :avatar, AvatarUploader
 
   has_and_belongs_to_many :claims, join_table: :books_users, association_foreign_key: :book_id, class_name: Book.to_s
 
+def self.search(search)
+  where("concat_ws(' ', first_name, last_name) ILIKE ?", "%#{search.squish}%")
+end
+
 def full_name
   first_name + " " + last_name
 end

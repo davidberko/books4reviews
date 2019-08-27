@@ -4,11 +4,14 @@
     </script>
 </head>
 <body>
-<h2 id="main-banner"><i>Write, Read, Review</i></h2>
+<h3 id="main-banner"><i>Write, Read, Review</i></h3>
+<button id="left_button" type="button">Author Details</button>
+<button id="right_button" type="button">Reviewer Details</button>
 
 <div id="pitch-container">
-  <div id="author-pitch">
-    <h2>Self-published Author?</h2>
+  
+  <div id="author-pitch" class="slide active">
+    <h2 id="author-header">Self-published Author?</h2>
 
     <p>
       Tired of seeing your books on Amazon go nowhere? Looking for a way to boost sales?
@@ -23,8 +26,9 @@
     </p>
     <%= link_to "read on", author_signup_path %>
   </div>
-  <div id="reviewer-pitch">
-    <h2>Readers, Looking fo the Next Great Author?</h2>
+  
+  <div id="reviewer-pitch" class="slide">
+    <h2 id="reviewer-header">Readers, Looking fo the Next Great Author?</h2>
 
     <p>
       Have we got the books for you. Hundreds of free titles. Free books in exchange for an honest review. And you feel good helping
@@ -56,5 +60,46 @@
       });
   }
     
+  $(document).ready(function(){
+    function loop () {
+
+      $("h2")
+      .animate({ opacity: "0.1"}, 2000)
+      .animate({ opacity: "1"}, 3000, loop);
+    }
+    loop();
+  });
+
+
+
+$(document).ready(function(){
+  $("#reviewer-pitch").addClass("hide");
+});
+
+$(document).ready(function(){
+  $("#right_button").on("click", function(){
+    var currentSlide = $(".active");
+    var nextSlide = currentSlide.next();
+
+    currentSlide.fadeOut(1000).removeClass("active");
+    nextSlide.fadeIn(1000).addClass("active");
+
+    if (nextSlide.length == 0) {
+      $(".slide").first().fadeIn(1000).addClass("active");
+    }
+  });
+
+  $("#left_button").on("click", function(){
+    var currentSlide = $(".active");
+    var prevSlide = currentSlide.prev();
+
+    currentSlide.fadeOut(1000).removeClass("active");
+    prevSlide.fadeIn(1000).addClass("active");
+
+    if (prevSlide.length == 0) {
+      $(".slide").last().fadeIn(1000).addClass("active");
+    }
+  });
+});
   
 </script>

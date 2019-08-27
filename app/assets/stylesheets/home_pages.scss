@@ -22,21 +22,36 @@
   cursor: pointer; 
 }
 
+#left_button {
+  color: #A0710B;
+  background-color: #852809;
+}
+#right_button {
+  color: #A0710B;
+  background-color: #852809;
+}
 
 #pitch-container {
   display: inline-block;
   background-color: #F6EFB3;
   height: 100%;
+  min-height: 800px;
+  min-width: 60%;
+  max-width: 600px;
   margin-bottom: 0;
+  margin-left: 20%;
+  margin-right: 20%;
+  border-color: black;
+  border-width: 50px;
+  border-style: solid;
+  border-radius: 20%;
+
   #author-pitch {
-    width: 50%;
+    width: 100%;
     float: left;
     height: 100%;
-    padding: 10px;
-    border-right-width: 2px;
-    border-right-style: groove;
-    border-right-color: black;
-
+    padding: 30px;
+    
     p {
       font-size: 5vh;
     }
@@ -44,13 +59,14 @@
       text-decoration: underline;
       font-size: 2em;
       text-shadow: 2px 3px #89745A;
+      text-align: center;
     }
   }
   #reviewer-pitch {
-    width: 50%;
-    float: left;
+    width: 100%;
     height: 100%;
-    padding: 10px;
+    padding: 30px;
+    
     p {
       font-size: 5vh;
     }
@@ -58,8 +74,14 @@
       text-decoration: underline;
       font-size: 2rem;
       text-shadow: 2px 3px #89745A;
+      text-align: center;
     }
   }
+}
+
+#book_bottom {
+  background-color: #A34E0C;
+  height: 100px;
 }
 .body-container {
   position: relative;
@@ -230,10 +252,7 @@
   background-color: white;
 }
 
-#book_bottom {
-  height: 100px;
-  background-color: #F6EFB3;
-}
+
 
 @media screen and (max-device-width: 500px) {
 
@@ -256,15 +275,20 @@
     }
     p {
         font-size: 10vh;
+        padding: 0px 0px 30px 30px;
       }
   }
   #reviewer-pitch {
-    
-    p {
-      font-size: 10vh;
-      text-align: center;
-    }
     width: 100%;
     position: relative;
+    
+    h2 {
+      text-align: center;
+    }
+    p {
+      padding: 0px 0px 20px 20px;
+      font-size: 10vh;
+    }
+    
   }
 }

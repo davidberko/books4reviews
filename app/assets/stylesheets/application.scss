@@ -45,12 +45,14 @@ body {
   background-color: #643510;
   height: 100vh;
   position: relative;
+  z-index: -5;
 }
 
 #site_wrapper {
   position: relative;
   display: block;
   min-height: 100vh;
+  z-index: -3;
 }
 #site_content {
   min-height: 100vh;
@@ -58,6 +60,7 @@ body {
   overflow: hidden;
   display: block;
   position: relative;
+  z-index: -1;
 }
 
 
@@ -99,10 +102,12 @@ body {
       right: 0;
       left: auto;
 
+
       li {
         background-color: white; opacity: 0.7;
         text-align: center;
         width: 300px;
+        z-index: -2;
         a {
           color: black;
         }
@@ -111,15 +116,14 @@ body {
         border-top-style: outset;
         border-top-width: 1px;
         border-top-color: black;
-        background-color: white; opacity: 0.9
+        background-color: white; 
+        opacity: 0.9;
       }
     }
       .user-dropdown li:hover a {
         color: #886962;
       }
-    #dropdown-container:hover .user-dropdown {
-        display: block;
-      }
+    
 
 
     .dropdown {

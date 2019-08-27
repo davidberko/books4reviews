@@ -9,6 +9,14 @@
 
 /* new book form */
 
+#book_form_container {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: #D2920A;
+ 
+}
+
   #new-book-form {
     width: 50%;
     margin-left: 25%;
@@ -26,22 +34,60 @@
 
     #author-books {
       border-top-style: solid;
-      border-top-width: 1px;
+      border-top-width: 2px;
       border-top-color: #852809;
-      margin-bottom: 30px;
+      border-bottom-style: solid;
+      border-bottom-width: 2px;
+      border-bottom-color: #852809;
+      height: 100px;
+      padding: 20px;
+      color: #89745A;
+      font-size: 2rem;
       a {
         font-size: 20px;
         color: white;
       }
+
     }
 
     #review-section {
       border-top-style: solid;
       border-top-width: 2px;
       border-top-color: #852809;
+      padding: 20px;
       width: 60%;
       margin-left: 20%;
       margin-right: 20%;
+      background-color: white;
+      span {
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+        border-bottom-color: #852809;
+      }
+      #review-table {
+        margin-top: 20px;
+        #moderation {
+          color: #89745A;
+        }
+      }
+    }
+    #add_to_list_cont {
+      background-color: white;
+      width: 60%;
+      margin-left: 20%;
+      margin-right: 20%;
+      padding: 20px;
+      h3 {
+        border-top-style: solid;
+        border-top-width: 2px;
+        border-top-color: #852809;
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+        border-bottom-color: #852809;
+      }
+      #already-reviewed {
+        background-color: #89745A;
+      }
     }
 
  @media screen and (max-device-width: 500px) {
