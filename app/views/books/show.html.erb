@@ -18,6 +18,13 @@
   </p>
 
   <p>
+    <strong>Genres</strong>
+
+    <% @book.genres.each do |g| %>
+      <%= link_to g.name, g %>
+    <% end %>
+  </p>
+  <p>
     <strong>Description:</strong>
     <p id="book-description"><%= @book.description.html_safe %></p>
   </p>
@@ -81,7 +88,7 @@
   <p id="already-reviewed">You've already reviewed this</p>
   <% else %>
     <div id="review-links">
-      <%= link_to "write a review", new_book_review_path(@book.id), style: "color:white;font-size:15px;" %>
+      <%= link_to "Write a review", new_book_review_path(@book.id), style: "color:blue;font-size:15px;" %>
     </div>
 </div>
   <% end %>

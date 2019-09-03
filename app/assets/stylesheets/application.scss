@@ -43,9 +43,11 @@
 html,
 body {
   background-color: #643510;
-  height: 100vh;
+  height: auto !important; 
+  min-height: 100%; 
   position: relative;
   z-index: -5;
+
 }
 
 #site_wrapper {
@@ -63,7 +65,13 @@ body {
   z-index: -1;
 }
 
-
+#notice {
+  color: white;
+  margin-left: 5%;
+  background-color: #89745A;
+  opacity: 0.3;
+  text-align: center;
+}
 
  nav {
    height: 130px;

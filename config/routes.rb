@@ -26,7 +26,8 @@ Rails.application.routes.draw do
   get 'authors' => 'users#author', as: 'authors'
   get 'current_user' => 'users#profile'
   get 'edit_user' => 'users#edit'
-  get 'users_search', to: 'users#author'
+  get 'authors_search', to: 'users#author'
+  get 'reviewers_search', to: 'users#reviewer'
 
 
   get 'new_author' => 'users#new_author'

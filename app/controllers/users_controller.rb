@@ -32,14 +32,18 @@ class UsersController < ApplicationController
   end
 
   def reviewer
-    @users = User.where(["access_level = ?", "1"]).order('first_name ASC')
+    if params[:search]
+      @reviewers_search = User.search(params[:search])
+    else
+      @reviewers_search = User.where(["access_level = ?", "1"]).order('first_name ASC')
+    end
   end
 
   def author
     if params[:search]
-      @users_search = User.search(params[:search])
+      @authors_search = User.search(params[:search])
     else
-      @users_search = User.where(access_level: :author).order('first_name ASC')
+      @authors_search = User.where(access_level: :author).order('first_name ASC')
     end
   end
 

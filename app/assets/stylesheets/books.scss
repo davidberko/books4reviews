@@ -2,25 +2,51 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#books_index_header {
+  text-align: center;
+  color:  #89745A;
+}
 
 #books-table {
   background: white;
+  padding: 20px;
+  tbody {
+    tr {
+       border-bottom-style: solid;
+        border-bottom-width: 2px;
+        border-bottom-color: #852809;
+    }
+  }
 }
 
 /* new book form */
+
+#new_book_header {
+  color: #89745A;
+  text-align: center;
+}
 
 #book_form_container {
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
   background-color: #D2920A;
- 
+  height: auto !important; 
+  min-height: 100%; 
+  padding: 30px;
 }
 
   #new-book-form {
     width: 50%;
     margin-left: 25%;
   }
+
+/* Book Edit */
+
+#book_edit_header {
+  text-align: center;
+  color: #89745A;
+}
 
 /* Book show page */
 
@@ -30,6 +56,7 @@
       margin-right: 20%;
       background-color: white;
       padding: 10px;
+      box-shadow: 0px 0px 4px 4px #89745A inset;
     }
 
     #author-books {
@@ -59,6 +86,7 @@
       margin-left: 20%;
       margin-right: 20%;
       background-color: white;
+      box-shadow: 0px 0px 4px 4px #89745A inset;
       span {
         border-bottom-style: solid;
         border-bottom-width: 2px;
@@ -87,6 +115,8 @@
       }
       #already-reviewed {
         background-color: #89745A;
+        opacity: 0.6;
+        text-align: center;
       }
     }
 

@@ -1,10 +1,10 @@
-<%= form_tag(users_search_path, method: "get", id: "search-form") do %>
+<%= form_tag(authors_search_path, method: "get", id: "search-form") do %>
 	<%= text_field_tag :search, params[:search], placeholder: "Search"%>
 	<%= submit_tag "Search" %>
 <% end %>
 
 
-  <% @users_search.each do |s| %>
+  <% @authors_search.each do |s| %>
   	 <div id="author-index-container">
 	    <%= link_to s.full_name, user_path(s) %>
 	    <%= image_tag s.avatar_url(:thumb).to_s %><br />

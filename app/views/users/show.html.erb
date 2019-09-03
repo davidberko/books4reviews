@@ -16,7 +16,7 @@
     <%= image_tag b.avatar_url(:small).to_s, class: "img-fluid" %>
     <div class='star-rating' data-score=<%= @avg_rating %>></div>
       <em><%= "#{b.reviews.size} reviews" %></em><br />
-    Title: <b><%= b.title %></b><br />
+    Title: <%= link_to b.title, b %><br />
     Description: <b><%= b.description.html_safe %></b><br />
     Genres: <%= b.genres.map { |x| x.name }.join(',') %><br />
   </div>
@@ -27,23 +27,24 @@
 
 <% if @user.reviewer? %>
 
-<h1>Reviewer <%= @user.full_name %></h1><br />
-
   <% @user.reviews.each do |r| %>
 
   <div id="user-reviews">
-    <%= image_tag r.book.avatar_url(:small).to_s, class: "img-fluid" %><br />
-    <b><%= r.book.title %><b><br /> by <%= r.book.user.first_name + " " + r.book.user.last_name %><br />
 
-    <h2>Review</h2><%= r.created_at.to_date %><br />
-      Rating: <div class="star-rating" data-score= <%= r.rating %> ></div>
-      <%= @user.first_name %> said: <%= r.comment.html_safe %><br />
-      <%= r.helpful? %>
+    <%= link_to image_tag(r.book.avatar_url(:small).to_s), r.book %><br />
+    <b><span id="book_title"><%= r.book.title %></span><b><br /> by 
+      <%= link_to r.book.user.full_name, r.book.user %><br />
+    <div id="actual_review">
+      <h2>Review</h2><%= r.created_at.to_date %><br />
+        Rating: <div class="star-rating" data-score= <%= r.rating %> ></div>
+        <%= @user.first_name %> said: <%= r.comment.html_safe %><br />
+        <span><i>**<%= r.unhelpful? %></i></span>
+    </div>
   </div><br />
 
   <% end %>
   <% if !@user.reviews.present? %>
-    No reviews yet
+    <p id="no-reviews">No reviews yet :(</p>
     <% end %>
 <% end %>
 
