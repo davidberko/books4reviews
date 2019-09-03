@@ -16,6 +16,7 @@
  @import 'books';
  @import 'users';
  @import 'reviews';
+ @import 'genres';
  @import 'home_pages';
  @import 'charges';
 
@@ -175,65 +176,7 @@ body {
 }
 
 
-/* Genres index */
 
-#genres-header {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #852809;
-  color: #A0710B;
-  text-shadow: 2px 2px #B4975C;
-}
-#genre-links {
-  color: white;
-  font-size: 20px;
-  margin-right: 10px;
-  margin-left: 15px;
-}
-
-/* Genre Show */
-
-#genre-header {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #852809;
-  color: #A0710B;
-  text-shadow: 2px 2px #B4975C;
-}
-#book-span {
-  margin-left: 25%;
-  background-color: white;
-  margin-right: 25%;
-  height: 100%;
-  border-radius: 15%;
-  img {
-    float: left;
-    border-radius: 15%;
-  }
-  p {
-    height: 190px;
-    img {
-      float: left;
-      margin-left: 10px;
-    }
-    a {
-      color: black;
-      font-size: 2rem;
-      margin-left: 10px;
-      text-decoration: none;
-      border-bottom-style: solid;
-      border-bottom-width: 2px;
-      border-bottom-color: #852809;
-
-    }
-    #explore_link {
-      color: #852809;
-      text-decoration: none;
-      font-size: 1rem;
-      border-bottom-width: 0px;
-    }
-  }
-}
 
 
 /* Registration/Login forms */
@@ -258,11 +201,14 @@ body {
   }
 
   #new-user-session {
-    width: 25%;
+    width: 30%;
     height: 100%;
     margin-top: 5%;
     margin-left: 60%;
+    padding: 30px;
     margin-right: 15%;
+    background-color: #852809;
+
 
     #user-login-header {
       border-bottom-style: solid;

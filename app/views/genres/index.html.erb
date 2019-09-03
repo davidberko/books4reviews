@@ -2,10 +2,11 @@
 <% @genres.each do |g| %>
 
 <table id="genres-table">
-<th></th>
-<tr>
-  <%= link_to g.name, genre_path(g), id: "genre-links"%>
-</tr>
-
+	<th></th>
+	<tbody>
+		<tr>
+	  		<%= link_to g.name, genre_path(g), id: "genre-links"%>
+		</tr>
+	</tbody>
 </table>
 <% end %>

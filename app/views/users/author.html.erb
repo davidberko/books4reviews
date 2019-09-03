@@ -1,12 +1,21 @@
-<%= form_tag(authors_search_path, method: "get", id: "search-form") do %>
-	<%= text_field_tag :search, params[:search], placeholder: "Search"%>
+<div id="author_search_bar">
+	<%= form_tag(authors_search_path, method: "get", id: "search-form") do %>
+	<%= text_field_tag :search, params[:search], placeholder: "Search Authors"%>
 	<%= submit_tag "Search" %>
 <% end %>
+</div>
 
-
-  <% @authors_search.each do |s| %>
+  	 
+ <div id="author-records-container"> 	   
+  	 <div id="author_pagination">
+  	 	<%= will_paginate @authors_search %>
+  	 </div>
+<% @authors_search.each do |s| %>
   	 <div id="author-index-container">
+
+
 	    <%= link_to s.full_name, user_path(s) %>
-	    <%= image_tag s.avatar_url(:thumb).to_s %><br />
+	    <%= image_tag s.avatar_url(:thumb).to_s %>
   	</div>
   <% end %>
+</div>

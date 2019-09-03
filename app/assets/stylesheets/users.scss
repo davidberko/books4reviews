@@ -4,7 +4,30 @@
 
 /* Authors */
 
-#author-index-container {
+#author_search_bar {
+  background-color: white;
+  opacity: 0.6;
+}
+
+
+
+#author-records-container {
+  display: inline-block;
+  width: 60%;
+  margin-left: 20%;
+  height: auto !important; 
+  min-height: 100%;
+  #author_pagination {
+    width: 60%;
+    margin-left: 20%;
+    padding: 20px;
+    background-color: white;
+    border-bottom-size: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: #852809;
+  }
+
+  #author-index-container {
 
   margin-left: 20%;
   width: 60%;
@@ -20,10 +43,34 @@
     margin-left: 10px;
   }
 }
+}
 
 /* Reviewers */
 
-#reviewer-index-container {
+#reviewer_search_bar {
+  background-color: white;
+  opacity: 0.6;
+  form {
+    opacity: 1;
+  }
+}
+
+#reviewer_records_container {
+  display: inline-block;
+  width: 60%;
+  margin-left: 20%;
+
+  #reviewer_pagination {
+    width: 60%;
+    margin-left: 20%;
+    padding: 20px;
+    background-color: white;
+    border-bottom-size: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: #852809;
+  }
+
+  #reviewer-index-container {
   margin-left: 20%;
   width: 60%;
   margin-right: 20%;
@@ -37,6 +84,8 @@
   img {
     margin-left: 10px;
   }
+}
+
 }
 
 /* Author Profile Page */

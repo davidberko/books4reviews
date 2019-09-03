@@ -7,6 +7,15 @@
   color:  #89745A;
 }
 
+#books_pagination {
+  padding-left: 40%;
+  background-color: white;
+  width: 100%;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #852809;
+}
+
 #books-table {
   background: white;
   padding: 20px;
@@ -69,7 +78,9 @@
       height: 100px;
       padding: 20px;
       color: #89745A;
+      background-color: #A34E0C;
       font-size: 2rem;
+      text-shadow: 2px 2px black;
       a {
         font-size: 20px;
         color: white;
