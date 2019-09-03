@@ -5,7 +5,7 @@
 
   <div class="profile-pic">
     <%= f.label "Add a profile pic" %><br />
-    <%= f.file_field :avatar %>
+    <%= f.file_field :avatar, class: "select_button" %>
   </div><br />
   <div class="user-roles">
     <%= f.select(:access_level, [['Author', 'author']]) %>

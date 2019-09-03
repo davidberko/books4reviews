@@ -32,11 +32,19 @@ class UsersController < ApplicationController
   end
 
   def reviewer
-    @users = User.where(["access_level = ?", "1"]).order('first_name ASC')
+    if params[:search]
+      @reviewers_search = User.search(params[:search]).paginate(:page => params[:page], :per_page => 2)
+    else
+      @reviewers_search = User.where(access_level: :reviewer).order('first_name ASC').paginate(:page => params[:page], :per_page => 2)
+    end
   end
 
   def author
-    @authors = User.where(access_level: :author).order('first_name ASC')
+    if params[:search]
+      @authors_search = User.search(params[:search]).paginate(:page => params[:page], :per_page => 2)
+    else
+      @authors_search = User.where(access_level: :author).order('first_name ASC').paginate(:page => params[:page], :per_page => 2)
+    end
   end
 
   def edit

@@ -1,0 +1,67 @@
+/* Genres index */
+
+#genres-header {
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  border-bottom-color: #852809;
+  color: #A0710B;
+  background-color: white;
+  opacity: 0.8;
+  text-shadow: 2px 2px #B4975C;
+  text-align: center;
+}
+
+
+    
+#genre-links {
+  color: white;
+  font-size: 20px;
+  margin-left: 40%;
+
+}
+ 
+
+
+/* Genre Show */
+
+#genre-header {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #852809;
+  color: #A0710B;
+  text-shadow: 2px 2px #B4975C;
+}
+#book-span {
+  margin-left: 25%;
+  background-color: white;
+  margin-right: 25%;
+  height: 100%;
+  border-radius: 15%;
+  img {
+    float: left;
+    border-radius: 15%;
+  }
+  p {
+    height: 190px;
+    img {
+      float: left;
+      margin-left: 10px;
+    }
+    a {
+      color: black;
+      font-size: 2rem;
+      margin-left: 10px;
+      text-decoration: none;
+      border-bottom-style: solid;
+      border-bottom-width: 2px;
+      border-bottom-color: #852809;
+
+    }
+    #explore_link {
+      color: #852809;
+      text-decoration: none;
+      font-size: 1rem;
+      border-bottom-width: 0px;
+    }
+  }
+}

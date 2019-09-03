@@ -18,13 +18,20 @@
   </p>
 
   <p>
+    <strong>Genres</strong>
+
+    <% @book.genres.each do |g| %>
+      <%= link_to g.name, g %>
+    <% end %>
+  </p>
+  <p>
     <strong>Description:</strong>
     <p id="book-description"><%= @book.description.html_safe %></p>
   </p>
 </div>
 <div id="author-books">
   <b>More Books by this author:</b> <%=link_to @book.user.full_name, user_path(@book.user) %>
-</div><br />
+</div>
 
 
 <div id="review-section" style="overflow-x:auto;">
@@ -41,29 +48,32 @@
     <tbody>
         <% @book.reviews.each do |r| %>
         <tr id="reviewer-name-stars">
-          <td class="reviewer-pic"><%= image_tag r.user.avatar_url(:thumb).to_s %></td>
-          <td class="reviewer-link"><b><%= link_to r.user.full_name, user_path(r.user) %></b></td>
+          <td class="reviewer-pic"><%= image_tag r.user.avatar_url(:thumb).to_s %>
+            <b><%= link_to r.user.full_name, user_path(r.user) %></b>
+          </td>
           <td class="star-rating" data-score= <%= r.rating %> ></td>
         </tr>
         <tr id="review-comment">
-          <td class="review"><%= r.comment.html_safe %></td>
+          <td class="review"><p><i><%= r.comment.html_safe %></i></p></td>
         </tr>
         <tr>
           <td id="moderation">
-             <%= r.unhelpful? %>
+             **<%= r.unhelpful? %>
           </td>
         </tr>
-      </div>
+      
       <% end %>
 
 
     </tbody>
   </table>
+</div>
 
 
 
 <% if current_user.reviewer? %>
 
+<div id="add_to_list_cont">
   <h3 id="reading-list-header">Add to Reading List</h3>
   <% if @book.claims.include? current_user %>
     <%= link_to "Done reading", unclaim_book_path(@book.id), id: "done-reading-link" %>
@@ -78,8 +88,9 @@
   <p id="already-reviewed">You've already reviewed this</p>
   <% else %>
     <div id="review-links">
-      <%= link_to "write a review", new_book_review_path(@book.id), style: "color:white;font-size:15px;" %>
+      <%= link_to "Write a review", new_book_review_path(@book.id), style: "color:blue;font-size:15px;" %>
     </div>
+</div>
   <% end %>
 <% end %>
 

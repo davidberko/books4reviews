@@ -1,6 +1,8 @@
 <h1 id="genre-header"><%= @genre.name %></h1>
 
-<% @genre.books.each do |g| %>
+<%= will_paginate @gbooks %>
+
+<% @gbooks.each do |g| %>
 
   <div id="book-span">
     <%= image_tag g.avatar_url(:small).to_s %>

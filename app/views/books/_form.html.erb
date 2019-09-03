@@ -1,6 +1,6 @@
 <%= tinymce_assets %>
 
-<body>
+<div id="book_form_container">
 <%= form_with(model: book, local: true) do |form| %>
   <% if book.errors.any? %>
     <div id="error_explanation">
@@ -33,14 +33,14 @@
 
     <div class="text_field">
       <%= form.label :description %>
-      <%= form.text_area :description, :class => "tinymce", :rows => 20, :cols => 120 %>
+      <%= form.text_area :description, :class => "tinymce", :rows => 10, :cols => 30 %>
     </div>
 
     <div class="genres-field">
-    <% @genres.each_with_index do |genre, i| %>
-      <%= check_box_tag "book[genre_ids][#{i}]", genre.id %>
-      <%= label_tag "book[genre_ids][#{i}]", genre.name %>
-    <% end %>
+      <% @genres.each_with_index do |genre, i| %>
+        <%= check_box_tag "book[genre_ids][#{i}]", genre.id %>
+        <%= label_tag "book[genre_ids][#{i}]", genre.name %>
+      <% end %>
     </div>
 
     <div class="actions">
@@ -51,7 +51,7 @@
 <script>
 tinymce.init({
   selector: 'textarea',
-  plugins: [ 'code', 'lists' ],
+  plugins: [ 'code', 'lists', 'link'],
   mobile: {
     theme: 'mobile',
     plugins: [ 'autosave', 'lists', 'autolink' ],
@@ -60,5 +60,5 @@ tinymce.init({
   });
 
 </script>
-</body>
+</div>
 <%= tinymce %>

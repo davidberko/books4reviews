@@ -1,25 +1,105 @@
-<h2 id="main-banner"><i>Write, Read, Review</i></h2>
+<DOCTYPE! html>
+<head>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+</head>
+<body>
+<h3 id="main-banner"><i>Write, Read, Review</i></h3>
+<button id="left_button" type="button">Author Details</button>
+<button id="right_button" type="button">Reviewer Details</button>
 
 <div id="pitch-container">
-  <div id="author-pitch">
-    <h4>Self-published Author?</h4>
+  
+  <div id="author-pitch" class="slide active">
+    <h2 id="author-header">Self-published Author?</h2>
 
-    <p>Tired of seeing your books on Amazon go nowhere? Looking for a way to boost sales?</p>
-    <p>Take it from me personally, I wasn't interested in buying 5 reviews for $100, and they're not even verified Amazon purchase
-      reviews to boot, or reading the cliche blog posts on how to get up in the ranks by honing your keywords in the description,
-      a better cover, and so on. No. Readers like to see validation that a book may be worthwhile. They like to see customer feedback.
-      Reviews. Are you in need of them? <%= link_to "read on", author_signup_path %>
-  </div>
-  <div id="reviewer-pitch">
-    <h4>Readers, Looking fo the Next Great Author?</h4>
-
-    <p>Have we got the books for you. Hundreds of free titles. Free books in exchange for an honest review. And you feel good helping
-      your favorite new author out, what could be better?
-      <%= link_to "tell me more!", reviewer_signup_path %>
+    <p>
+      Tired of seeing your books on Amazon go nowhere? Looking for a way to boost sales?
     </p>
+    <p>
+      Take it from me personally, I wasn't interested in buying 5 reviews for $100, and they're not even verified Amazon purchase
+      reviews to boot, or reading the cliche blog posts on how to get up in the ranks by
+    </p> 
+    <p id="truncated">honing your keywords in the description,
+      a better cover, and so on. No. Readers like to see validation that a book may be worthwhile. They like to see customer feedback.
+      Reviews. Are you in need of them? 
+    </p>
+    <%= link_to "read on", author_signup_path %>
   </div>
+  
+  <div id="reviewer-pitch" class="slide">
+    <h2 id="reviewer-header">Readers, Looking fo the Next Great Author?</h2>
+
+    <p>
+      Have we got the books for you. Hundreds of free titles. Free books in exchange for an honest review. And you feel good helping
+      your favorite new author out, what could be better?
+    </p>
+    <%= link_to "tell me more!", reviewer_signup_path %>
+  </div>
+</div>
+<div id=book_bottom>
+
 </div>
 <div class="body-container">
   <h3>Already a member?   <button type="button"><%= link_to "Log in", new_user_session_path, id: "login_link" %></button></h3>
 
 </div>
+</body>
+<script>
+
+  if ($(window).width() < 600) {
+    alert("welcome to mobile!");
+  }
+  else {
+      $("#truncated").addClass("hide");
+      $("#truncated").after("<p id='elipses'>...</p>");
+      $("#elipses").css("color", "blue");
+      $("#elipses").addClass("pointerCursor");
+      $("#elipses").on("click", function(){
+        $("#truncated").toggle();
+      });
+  }
+    
+  $(document).ready(function(){
+    function loop () {
+
+      $("h2")
+      .animate({ opacity: "0.1"}, 2000)
+      .animate({ opacity: "1"}, 3000, loop);
+    }
+    loop();
+  });
+
+
+
+$(document).ready(function(){
+  $("#reviewer-pitch").addClass("hide");
+});
+
+$(document).ready(function(){
+  $("#right_button").on("click", function(){
+    var currentSlide = $(".active");
+    var nextSlide = currentSlide.next();
+
+    currentSlide.fadeOut(1000).removeClass("active");
+    nextSlide.fadeIn(1000).addClass("active");
+
+    if (nextSlide.length == 0) {
+      $(".slide").first().fadeIn(1000).addClass("active");
+    }
+  });
+
+  $("#left_button").on("click", function(){
+    var currentSlide = $(".active");
+    var prevSlide = currentSlide.prev();
+
+    currentSlide.fadeOut(1000).removeClass("active");
+    prevSlide.fadeIn(1000).addClass("active");
+
+    if (prevSlide.length == 0) {
+      $(".slide").last().fadeIn(1000).addClass("active");
+    }
+  });
+});
+  
+</script>

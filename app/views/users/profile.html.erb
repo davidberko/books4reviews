@@ -1,60 +1,77 @@
-<div id="profile-pic-container">
-  <%= image_tag current_user.avatar_url(:small).to_s, class: "img-fluid"  %><br />
-</div>
+<!DOCTYPE html>
+
 <% if current_user.author? %>
 
-<h1>Welcome Author, <%= current_user.full_name %></h1>
+<body>
+    <div id="profile-pic-container">
+      <%= image_tag current_user.avatar_url(:small).to_s, class: "img-fluid", style: "border-radius: 50%"  %><br />
+    </div>
+    <h1 id="author_welcome">Welcome Author, <%= current_user.full_name %></h1>
 
-<div id="new-book-upload">
-  <h3>Upload one of your books to be reviewed!</h3>
-  <%= link_to "new book", new_book_path %><br />
-</div>
-<% end %>
-
-
-  <% current_user.books.each do |b| %>
-
-
-
-
-  <div id="author-profile-books">
-    <%= image_tag b.avatar_url(:thumb).to_s, class: "img-fluid" %>
-    Title: <b><%= b.title %></b><br />
-    Description: <%= b.description.html_safe %><br />
-    <b>Genres:</b> <%= b.genres.map { |x| x.name }.join(',') %><br />
-  </div>
-
+    <div id="new-book-upload">
+      <%= link_to image_tag("icons8-plus-64.png"), new_book_path %><br />
+    </div>
     <% end %>
+
+      <% current_user.books.each do |b| %>
+
+
+
+
+      <div id="author-profile-books">
+        <%= image_tag b.avatar_url(:small).to_s, class: "img-fluid" %>
+        <b><%= b.title %></b><br />
+        <p><%= b.description.html_safe %></p><br />
+        <b>Genres:</b> <%= b.genres.map { |x| x.name }.join(',') %><br />
+
+        <div id="book_edit_icons"><%= link_to image_tag("icons8-pencil-24.png"), edit_book_path(b) %><%= link_to image_tag("icons8-delete-16.png"), book_path(b), method: :delete %>
+        </div>
+      </div>
+
+        <% end %>
+
 <% if current_user.reviewer? %>
 
-<h1>Welcome Reviewer, <%= current_user.full_name %></h1><br />
+  <div id="profile-pic-container">
+    <%= image_tag current_user.avatar_url(:small).to_s, class: "img-fluid", style: "border-radius: 50%"  %>
+    <div id="scorecard-container">
+        <h3 id="scorecard-header">My Scorecard</h3>
 
 
-<h2 id="scorecard-header">My Scorecard</h3>
+        <table id="scorecard-table">
+          <th>Total Reviews</th>
+          <th>Helpful</th>
+          <th>Unhelpful</th>
+          <th>Score</th>
 
-<table id="scorecard-container">
-  <th>Total Reviews</th>
-  <th>Helpful</th>
-  <th>Unhelpful</th>
-  <th>Score</th>
+          <tr id="scorecard">
+            <td><%= current_user.reviews.count %></td>
+            <td><%= @helpful.count %></td>
+            <td><%= @unhelpful.count %></td>
+            <td><%= number_to_percentage(@score * 100, precision: 0) %></td>
 
-  <tr id="scorecard">
-    <td><%= current_user.reviews.count %></td>
-    <td><%= @helpful.count %></td>
-    <td><%= @unhelpful.count %></td>
-    <td><%= number_to_percentage(@score * 100, precision: 0) %></td>
+          </tr>
+        </table>
+    </div>
+  </div>
 
-  </tr>
-</table>
+    <div id="profile-container">
 
+      <div id="reviewer_name_banner">
+        <h2>Welcome Reviewer, <%= current_user.full_name %></h2><br />
+        <h3><b>Currently Reading</b></h3>
+      </div>
 
-<div id="currently-reading">
-  <h3><b>Currently Reading</b></h3>
-  <% current_user.claims.each do |c| %>
-  <%= link_to c.title, c, id: "currently-reading-link" %><br />
-  <% end %>
-</div><br />
+    
 
-<%= link_to "Your next book", genres_path, id: "next-book" %>
-
-<% end %>
+    <div id="currently-reading">
+      <% current_user.claims.each do |c| %>
+         <%= link_to image_tag(c.avatar_url(:small).to_s), c, id: "currently-reading-link" %>
+      <% end %>
+    </div>
+    <div id="next_book_link">
+      <%= link_to "Your next book", genres_path, id: "next-book" %>
+    </div>
+    <% end %>
+  </div>
+</body>

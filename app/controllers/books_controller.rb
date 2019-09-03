@@ -5,7 +5,7 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
 
-    @books = Book.paginate(:page => params[:page], :per_page => 5)
+    @books = Book.paginate(:page => params[:page], :per_page => 2)
 
   end
 
@@ -32,6 +32,7 @@ class BooksController < ApplicationController
 
   # GET /books/1/edit
   def edit
+    @genres = Genre.all 
   end
 
   # POST /books
@@ -53,14 +54,14 @@ class BooksController < ApplicationController
   def claim
     book = Book.find(params[:id])
     book.claims << current_user unless book.claims.include?(current_user)
-    redirect_to book
+    redirect_to book, notice: 'Added to reading list'
   end
 
   def unclaim
     book = Book.find(params[:id])
     if book.claims.include?(current_user)
       book.claims.delete(current_user)
-      redirect_to book
+      redirect_to book, notice: 'Done reading'
     end
   end
   # PATCH/PUT /books/1
@@ -68,7 +69,7 @@ class BooksController < ApplicationController
   def update
     respond_to do |format|
       if @book.update(book_params)
-        format.html { redirect_to @book, notice: 'Book was successfully updated.' }
+        format.html { redirect_to current_user_path, notice: 'Book was successfully updated.' }
         format.json { render :show, status: :ok, location: @book }
       else
         format.html { render :edit }
@@ -82,7 +83,7 @@ class BooksController < ApplicationController
   def destroy
     @book.destroy
     respond_to do |format|
-      format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
+      format.html { redirect_to current_user_path, notice: 'Book was successfully deleted.' }
       format.json { head :no_content }
     end
   end

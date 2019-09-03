@@ -2,9 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
+#new_review_header {
+  color: #89745A;  
+  text-align: center;
+}
+
 #new-review-container {
   width: 50%;
   margin-left: 25%;
+  background-color: white;
+  padding: 30px;
+}
+
+#rsh_container {
+  background-color: #C7CCD3;
+  #reviewer-signup-header {
+
+  }
 }
 
 #reviews-index-container {
@@ -23,7 +39,7 @@
     border-bottom-width: 1px;
     border-bottom-color: #852809;
   }
- 
+
 }
 #done_row {
   display: none;

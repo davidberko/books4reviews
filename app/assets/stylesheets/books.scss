@@ -2,17 +2,60 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#books_index_header {
+  text-align: center;
+  color:  #89745A;
+}
+
+#books_pagination {
+  padding-left: 40%;
+  background-color: white;
+  width: 100%;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #852809;
+}
 
 #books-table {
   background: white;
+  padding: 20px;
+  tbody {
+    tr {
+       border-bottom-style: solid;
+        border-bottom-width: 2px;
+        border-bottom-color: #852809;
+    }
+  }
 }
 
 /* new book form */
+
+#new_book_header {
+  color: #89745A;
+  text-align: center;
+}
+
+#book_form_container {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: #D2920A;
+  height: auto !important; 
+  min-height: 100%; 
+  padding: 30px;
+}
 
   #new-book-form {
     width: 50%;
     margin-left: 25%;
   }
+
+/* Book Edit */
+
+#book_edit_header {
+  text-align: center;
+  color: #89745A;
+}
 
 /* Book show page */
 
@@ -22,26 +65,70 @@
       margin-right: 20%;
       background-color: white;
       padding: 10px;
+      box-shadow: 0px 0px 4px 4px #89745A inset;
     }
 
     #author-books {
       border-top-style: solid;
-      border-top-width: 1px;
+      border-top-width: 2px;
       border-top-color: #852809;
-      margin-bottom: 30px;
+      border-bottom-style: solid;
+      border-bottom-width: 2px;
+      border-bottom-color: #852809;
+      height: 100px;
+      padding: 20px;
+      color: #89745A;
+      background-color: #A34E0C;
+      font-size: 2rem;
+      text-shadow: 2px 2px black;
       a {
         font-size: 20px;
         color: white;
       }
+
     }
 
     #review-section {
       border-top-style: solid;
       border-top-width: 2px;
       border-top-color: #852809;
+      padding: 20px;
       width: 60%;
       margin-left: 20%;
       margin-right: 20%;
+      background-color: white;
+      box-shadow: 0px 0px 4px 4px #89745A inset;
+      span {
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+        border-bottom-color: #852809;
+      }
+      #review-table {
+        margin-top: 20px;
+        #moderation {
+          color: #89745A;
+        }
+      }
+    }
+    #add_to_list_cont {
+      background-color: white;
+      width: 60%;
+      margin-left: 20%;
+      margin-right: 20%;
+      padding: 20px;
+      h3 {
+        border-top-style: solid;
+        border-top-width: 2px;
+        border-top-color: #852809;
+        border-bottom-style: solid;
+        border-bottom-width: 2px;
+        border-bottom-color: #852809;
+      }
+      #already-reviewed {
+        background-color: #89745A;
+        opacity: 0.6;
+        text-align: center;
+      }
     }
 
  @media screen and (max-device-width: 500px) {
