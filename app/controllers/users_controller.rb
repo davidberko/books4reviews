@@ -11,11 +11,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @avg_rating = if @user.reviews.blank?
+    @user.books.each do |b|
+    @avg_rating = if b.reviews.blank?
     0
     else
-      @user.reviews.average(:rating).round(2)
+      b.reviews.average(:rating).round(2)
     end
+  end
   end
 
 
@@ -67,7 +69,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :avatar, :access_level)
+    params.require(:user).permit(:bio, :first_name, :last_name, :email, :password, :avatar, :access_level)
   end
 
 end

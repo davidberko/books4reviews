@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 
+
 <body>
 <div id="user-show-profile-pic">
   <%= image_tag @user.avatar_url(:thumb).to_s, class: "img-fluid" %><b><%= @user.full_name %></b><br />
 </div>
 
 <% if @user.author? %>
+
+<div id="author_bio">
+  <h3>About <%= @user.first_name %></h3>
+  <p id="bio_text">
+    <% if @user.bio.length > 150 %>
+      <%= truncate(@user.bio, escape: false, length: 120) %>
+      <%= link_to "read more", '', class: "read-more-#{@user.id}" %>
+      <script>
+        $(".read-more-<%= @user.id %>").on("click", function(e){
+          e.preventDefault()
+          $(this).parent().html('<%= escape_javascript @user.bio %>').append("<p class='show-less-link' style='color: blue; cursor:pointer'>show less</p>");
+            $(".show-less-link").on("click", function(){
+            $(this).parent().html( "<%= escape_javascript truncate(@user.bio, escape: false, length: 120)%>")
+          });
+        });
+
+      
+       
+      </script>
+    <% else %>
+          <%= @user.bio %>
+    <% end %>
+  </p>
+</div>
 
   <% @user.books.each do |b| %>
 
@@ -47,7 +72,6 @@
     <p id="no-reviews">No reviews yet :(</p>
     <% end %>
 <% end %>
-
 <script>
     $('.star-rating').raty({
       path: '/assets/',
@@ -56,5 +80,8 @@
             return $(this).attr('data-score');
     }
   });
+   
 </script>
+
 </body>
+>

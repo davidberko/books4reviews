@@ -11,6 +11,10 @@
     <%= f.select(:access_level, [['Author', 'author']]) %>
   </div><br />
 
+  <div class="field">
+    <%= f.text_area :bio, placeholder: "Tell your story...", :rows => 5, :cols => 30 %>
+  </div>
+
   <div class="user-name">
     <%= f.label :first_name %>
     <%= f.text_field :first_name %><br />
