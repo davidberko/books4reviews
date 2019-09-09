@@ -11,23 +11,45 @@
 <div id="author_bio">
   <h3>About <%= @user.first_name %></h3>
   <p id="bio_text">
-    <% if @user.bio.length > 150 %>
+    
+    <script>
+      $(window).on("load", function(){
+        $(".read-less-<%= @user.id %>").addClass("hide");
+      });
+    </script>
+
+    <% if @user.bio.blank?%>
+          
+          <div>
+            <p>
+              No bio yet :(
+            </p>
+          </div>
+
+    <% elsif @user.bio.length > 150 %>
       <%= truncate(@user.bio, escape: false, length: 120) %>
       <%= link_to "read more", '', class: "read-more-#{@user.id}" %>
+       <%= link_to "read less", '', class: "read-less-#{@user.id}"%>
       <script>
         $(".read-more-<%= @user.id %>").on("click", function(e){
           e.preventDefault()
-          $(this).parent().html('<%= escape_javascript @user.bio %>').append("<p class='show-less-link' style='color: blue; cursor:pointer'>show less</p>");
-            $(".show-less-link").on("click", function(){
-            $(this).parent().html( "<%= escape_javascript truncate(@user.bio, escape: false, length: 120)%>")
+          $(this).parent().html('<%= escape_javascript @user.bio %>')
+           $(".read-less-<%= @user.id %>").addClass("show")
           });
-        });
+        
 
-      
+           
+         
+         
+
        
       </script>
-    <% else %>
-          <%= @user.bio %>
+
+
+      <% else %>
+        
+        <% @user.bio %>
+
     <% end %>
   </p>
 </div>
