@@ -11,11 +11,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @avg_rating = if @user.reviews.blank?
+    @user.books.each do |b|
+    @avg_rating = if b.reviews.blank?
     0
     else
-      @user.reviews.average(:rating).round(2)
+      b.reviews.average(:rating).round(2)
     end
+  end
   end
 
 
@@ -40,10 +42,11 @@ class UsersController < ApplicationController
   end
 
   def author
-    if params[:search]
-      @authors_search = User.search(params[:search]).paginate(:page => params[:page], :per_page => 2)
-    else
-      @authors_search = User.where(access_level: :author).order('first_name ASC').paginate(:page => params[:page], :per_page => 2)
+      if params[:search]
+        @authors_search = User.search(params[:search]).paginate(:page => params[:page], :per_page => 2)
+        @author_rank = b.reviews.count 
+      else
+        @authors_search = User.where(access_level: :author).order('first_name ASC').paginate(:page => params[:page], :per_page => 2)
     end
   end
 
@@ -67,7 +70,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :avatar, :access_level)
+    params.require(:user).permit(:bio, :ranking, :first_name, :last_name, :email, :password, :avatar, :access_level)
   end
 
 end

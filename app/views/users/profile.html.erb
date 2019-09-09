@@ -2,7 +2,7 @@
 
 <% if current_user.author? %>
 
-<body>
+  
     <div id="profile-pic-container">
       <%= image_tag current_user.avatar_url(:small).to_s, class: "img-fluid", style: "border-radius: 50%"  %><br />
     </div>
@@ -13,12 +13,21 @@
     </div>
     <% end %>
 
+  <% if current_user.author? & current_user.books.blank? %>
+
+ 
+    <div id="no_books">
+      << You don't have any books yet, upload one now
+    </div>
+
+
+    <% else %>
+  
+
       <% current_user.books.each do |b| %>
 
 
-
-
-      <div id="author-profile-books">
+    <div id="author-profile-books">
         <%= image_tag b.avatar_url(:small).to_s, class: "img-fluid" %>
         <b><%= b.title %></b><br />
         <p><%= b.description.html_safe %></p><br />
@@ -27,11 +36,13 @@
         <div id="book_edit_icons"><%= link_to image_tag("icons8-pencil-24.png"), edit_book_path(b) %><%= link_to image_tag("icons8-delete-16.png"), book_path(b), method: :delete %>
         </div>
       </div>
+      <% end %>
+    <% end %>
 
-        <% end %>
 
 <% if current_user.reviewer? %>
 
+<body>
   <div id="profile-pic-container">
     <%= image_tag current_user.avatar_url(:small).to_s, class: "img-fluid", style: "border-radius: 50%"  %>
     <div id="scorecard-container">
@@ -75,3 +86,4 @@
     <% end %>
   </div>
 </body>
+
