@@ -7,8 +7,6 @@ ruby '2.4.1'
 gem 'rails', '~> 5.2.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'appengine'
-gem 'sequel'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -34,13 +32,18 @@ gem 'tinymce-rails-imageupload', github: 'PerfectlyNormal/tinymce-rails-imageupl
  gem 'mini_magick'
  gem 'carrierwave'
  gem 'fog'
+ gem "aws-sdk-s3", require: false
+ gem 'figaro'
 
 
  gem 'will_paginate', '~> 3.1.0'
  gem 'bootstrap'
  gem 'jquery-rails'
  gem 'mini_racer'
+
  gem 'stripe'
+ gem 'sendgrid-ruby'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
