@@ -17,10 +17,13 @@
 	    <%= link_to s.full_name, user_path(s) %>
 	    <%= image_tag s.avatar_url(:thumb).to_s %>
 
-     <%= @authors_search.collect(&:reviews).count %> reviews
+     <%= s.books.collect(&:reviews).count %> reviews
      Ranking: 
-     <%= s.ranking %>
-      
+     <% if s.ranking == nil %>
+      0
+      <% else %>
+        <%= s.ranking %>
+      <% end %>
     
   	</div>
   <% end %>

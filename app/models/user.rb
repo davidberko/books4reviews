@@ -26,10 +26,6 @@ def score
   self.reviews.where(helpful: true)
 end
 
-def initialize(array)
-  @array = array
-end
-
 def count_increases
   @array = self.reviews.size
   if @array += 1
